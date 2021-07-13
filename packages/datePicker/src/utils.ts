@@ -238,7 +238,6 @@ export const weekdayCodes = [
  */
 export const getRegExpOfDateFormat = (formatType: string): RegExp => {
   let regExp = '';
-
   switch (formatType) {
     case 'yyyy-MM-dd':
       regExp =
@@ -256,6 +255,5 @@ export const getRegExpOfDateFormat = (formatType: string): RegExp => {
       regExp =
         '^(19|20)\\d\\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$';
   }
-
   return new RegExp(regExp);
 };

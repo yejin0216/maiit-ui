@@ -70,7 +70,7 @@ const nomarlize = `
   textarea {
     font-family: inherit; 
     font-size: 100%; 
-    //line-height: 1.15; 
+    /* line-height: 1.15; */ 
     margin: 0; 
   }
   button,
@@ -153,26 +153,44 @@ const nomarlize = `
 
 export default createGlobalStyle`
   ${nomarlize}
+  // * {
+  //   box-sizing: border-box;
+  // }
   html {
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: Roboto,Helvetica Neue,sans-serif;
     font-size: 14px;
   }
   button {
     cursor: pointer;
   }
+
+  .datepicker-container {
+    .datepicker-header > .datepicker-header-navigation:hover {
+      background-color: #eeeeee;
+    }
+    .datepicker-body > .datepicker-valid-dates:hover,
+    .datepicker-body > .datepicker-focused-dates:hover  {
+      background-color: ${props => (props.theme as Dict).colors.default[100]};
+    }
+  }
+
   .${classNames.light} {
     background-color: ${props =>
       (props.theme as Dict).backgroundColors.default.primary};
     color: ${props => (props.theme as Dict).fontColors.default.title};
 
     input, 
-    .datepicker-calendar button, 
+    .datepicker-body button, 
     .datepicker-header div {
       color: ${props => (props.theme as Dict).fontColors.default.title};
     }
 
     .datepicker-header button {
-      color: #757575; 
+      color: #858585; 
+    }
+
+    .datepicker-header-weekdays {
+      color: #00000061;
     }
   }
   .${classNames.dark} {

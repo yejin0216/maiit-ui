@@ -9,6 +9,8 @@ interface DatePickerHeaderProps {
   getDateFrom: (arg0: number | Date) => void;
 }
 
+const today = +utils.getStartOfToday();
+
 const DatePickerBody = ({
   defaultDate,
   minDate,
@@ -23,37 +25,36 @@ const DatePickerBody = ({
     0,
   );
 
-  const datesOfTheMonth = Array.from(
-    { length: 7 * utils.getWeekInTheMonth(defaultDate) },
-    (v, i) => {
-      const indexFromFirstDay: number = i - firstDayOfTheMonth + 1;
-      if (i >= firstDayOfTheMonth && indexFromFirstDay <= lastDateOfThisMonth) {
-        const stdDate: number =
-          +lastDateOfPrevMonth + 86400000 * indexFromFirstDay;
+  const datesOfTheMonth = Array.from({ length: 42 }, (v, i) => {
+    const indexFromFirstDay: number = i - firstDayOfTheMonth + 1;
 
-        let attribute = 'valid';
-        if (stdDate < +minDate || stdDate > +maxDate) {
-          attribute = 'invalid';
-        }
-        if (+defaultDate === stdDate) {
-          attribute = 'focused';
-        }
-        return { key: stdDate, value: indexFromFirstDay, attribute };
+    if (i >= firstDayOfTheMonth && indexFromFirstDay <= lastDateOfThisMonth) {
+      const stdDate: number =
+        +lastDateOfPrevMonth + 86400000 * indexFromFirstDay;
+      const result = { key: stdDate, value: indexFromFirstDay };
+
+      if (stdDate < +minDate || stdDate > +maxDate) {
+        return Object.assign(result, { attribute: 'invalid' });
+      }
+      if (today === stdDate) {
+        return Object.assign(result, { attribute: 'focused' });
       }
 
-      return { key: -i, value: '', attribute: 'invalid' };
-    },
-  );
+      return Object.assign(result, { attribute: 'valid' });
+    }
+
+    return { key: -i, value: '', attribute: 'invalid' };
+  });
 
   return (
     <div className="datepicker-body">
-      {utils.weekdayCodes.map(day => {
+      {/* {utils.weekdayCodes.map(day => {
         return (
           <p className="datepicker-weekdays" key={day.code.toString()}>
             {day.label}
           </p>
         );
-      })}
+      })} */}
       {datesOfTheMonth.map(
         (date: Dict): JSX.Element => {
           return (

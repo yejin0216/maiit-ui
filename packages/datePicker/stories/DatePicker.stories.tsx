@@ -5,12 +5,7 @@ import { DatePickerProps } from '../src/types';
 import * as utils from '../src/utils';
 
 const DatePickerWrapper = (props: DatePickerProps) => {
-  const handleChange = (e: React.ChangeEvent) => {
-    const $target = e.target as HTMLInputElement;
-    console.log($target.value);
-  };
-
-  return <DatePicker {...props} onChange={handleChange} />;
+  return <DatePicker {...props} />;
 };
 
 export default {
@@ -52,12 +47,9 @@ export default {
       description: 'Maximum selectable date',
       control: { type: 'date' },
     },
-    dateFormat: {
-      description: 'Date format',
-      table: {
-        defaultValue: { summary: 'yyyy-MM-dd' },
-      },
-    },
+    // onChange: {
+    //   description: 'Minimum selectable date',
+    // },
   },
 } as ComponentMeta<typeof DatePickerWrapper>;
 
@@ -72,4 +64,7 @@ InputType.args = {
   minDate: utils.subPeriod('year', utils.getStartOfToday(), 1),
   maxDate: utils.addPeriod('year', utils.getStartOfToday(), 1),
   readOnly: false,
+  onChange: (e: React.ChangeEvent) => {
+    const $targetValue = (e.target as HTMLInputElement).value;
+  },
 };

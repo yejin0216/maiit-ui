@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as utils from './utils';
-import DatePickerHeaderRightNavigation from './DatePickerHeaderRightNavigation';
-import DatePickerHeaderLeftNavigation from './DatePickerHeaderLeftNavigation';
+import DatePickerHeaderNavigation from './DatePickerHeaderNavigation';
+import DatePickerWeekdays from './DatePickerWeekdays';
 
 interface DatePickerHeaderProps {
   defaultDate: number | Date;
@@ -14,13 +14,16 @@ const DatePickerHeader = ({
   prev,
   next,
 }: DatePickerHeaderProps): JSX.Element => (
-  <div className="datepicker-header">
-    <DatePickerHeaderLeftNavigation handleClick={prev} />
-    <div className="datepicker-header-label">
-      {utils.dateFormatter(defaultDate, 'MMM yyyy')}
+  <>
+    <div className="datepicker-header">
+      <DatePickerHeaderNavigation handleClick={[prev, next]}>
+        <div className="datepicker-header-label">
+          {utils.dateFormatter(defaultDate, 'MMM yyyy')}
+        </div>
+      </DatePickerHeaderNavigation>
     </div>
-    <DatePickerHeaderRightNavigation handleClick={next} />
-  </div>
+    <DatePickerWeekdays />
+  </>
 );
 
 export default React.memo(DatePickerHeader);

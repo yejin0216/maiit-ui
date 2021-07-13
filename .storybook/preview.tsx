@@ -27,7 +27,11 @@ const ButtonInstance = styled.button<buttonProps>`
 const Button = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <ButtonInstance colorMode={colorMode} onClick={toggleColorMode}>
+    <ButtonInstance
+      aria-label="toggle"
+      colorMode={colorMode}
+      onClick={toggleColorMode}
+    >
       {colorMode === 'light' ? <HiMoon /> : <HiSun />}
     </ButtonInstance>
   );

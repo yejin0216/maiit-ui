@@ -3,23 +3,35 @@ import { fontSizes } from '@/theme/styles/fonts';
 import { geek } from '@/theme/styles/colors';
 import { classNames } from '@/color-mode/src/utils';
 
-const baseGridStyles = css`
-  letter-spacing: 0.025rem;
-  text-transform: uppercase;
+const baseGridStyle = css`
+  flex-shrink: 0;
+  display: grid;
+  grid-template-columns: repeat(7, 40px);
+  grid-auto-rows: 40px;
+  row-gap: 2px;
+  padding: 0 8px;
+  place-items: center;
+  -webkit-box-align: center;
+  user-select: none;
 `;
 
-const baseDateBlockStyles = css`
+const baseGridItemStyles = css`
   width: 40px;
   height: 40px;
-  border: none;
-  border-radius: 50%;
-  margin: 0;
-  background: none;
   display: flex;
+  margin: 0;
   -webkit-box-align: center;
   align-items: center;
   -webkit-box-pack: center;
   justify-content: center;
+  letter-spacing: 0.025rem;
+  text-transform: uppercase;
+  border-radius: 50%;
+`;
+
+const baseDateBlockStyles = css`
+  border: none;
+  background: none;
 `;
 
 const DatePickerContainer = styled.div.attrs(props => {
@@ -34,6 +46,7 @@ const DatePickerContainer = styled.div.attrs(props => {
     border: none;
     border-bottom: 1px solid #929292;
     padding: 0.375rem 0.75rem;
+    cursor: pointer;
   }
 
   .datepicker-calendar {
@@ -74,7 +87,7 @@ const DatePickerContainer = styled.div.attrs(props => {
       flex-grow: 1;
       line-height: 40px;
       text-align: center;
-      font-weight: bold;
+      font-weight: 500;
     }
 
     .datepicker-header-navigation {
@@ -85,51 +98,42 @@ const DatePickerContainer = styled.div.attrs(props => {
       font: inherit;
       min-width: 40px;
       background: none;
-      cursor: pointer;
+      border-radius: 50%;
       font-size: ${fontSizes['3xl']};
-      &:hover {
-        background-color: ${geek.blue10};
-        border-radius: 3px;
-      }
+    }
+  }
+
+  .datepicker-header-weekdays {
+    ${baseGridStyle}
+    margin-bottom: 8px;
+    border-bottom: 1px solid #e0e0e0;
+
+    .datepicker-weekdays {
+      ${baseGridItemStyles};
+      font-size: ${fontSizes.sm};
     }
   }
 
   .datepicker-body {
-    flex-shrink: 0;
-    display: grid;
-    padding: 0 8px 8px 8px;
-    grid-template-columns: repeat(7, 40px);
-    grid-auto-rows: 40px;
-    row-gap: 2px;
-    place-items: center;
-    -webkit-box-align: center;
-    user-select: none;
-    color: inherit;
-
-    .datepicker-weekdays {
-      ${baseGridStyles};
-      font-size: ${fontSizes.sm};
-      font-weight: bold;
-      color: #757575;
-    }
+    ${baseGridStyle}
 
     .datepicker-valid-dates {
-      ${baseGridStyles};
+      ${baseGridItemStyles};
       ${baseDateBlockStyles};
-      &:hover {
-        background-color: ${geek.blue10};
-        cursor: pointer;
-      }
+      // &:hover {
+      //   background-color: ${geek.blue10};
+      //   cursor: pointer;
+      // }
     }
 
     .datepicker-invalid-dates {
-      ${baseGridStyles};
+      ${baseGridItemStyles};
       ${baseDateBlockStyles};
       opacity: 10%;
     }
 
     .datepicker-focused-dates {
-      ${baseGridStyles};
+      ${baseGridItemStyles};
       ${baseDateBlockStyles};
       border: 1px solid #757575;
       cursor: pointer;

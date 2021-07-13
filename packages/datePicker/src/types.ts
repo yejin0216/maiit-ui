@@ -6,7 +6,3 @@ export type DatePickerProps = {
   readOnly?: boolean;
   onChange: (arg0: React.ChangeEvent) => void;
 };
-
-export type DatePickerNavagationProps = {
-  handleClick: (arg0: string) => void;
-};

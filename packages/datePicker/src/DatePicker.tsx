@@ -111,6 +111,7 @@ const DatePicker = (props: DatePickerProps): JSX.Element => {
         type="date"
         ref={inputRef}
         className="datepicker-input"
+        aria-label="input date"
         readOnly={readOnly}
         onChange={e => handleChange(e, onChange)}
       />
