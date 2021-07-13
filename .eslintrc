@@ -31,13 +31,20 @@
     "import/namespace": "off",
     "import/no-extraneous-dependencies": "off",
     "react/require-default-props": "off",
-    "react-hooks/exhaustive-deps": "error"
+    "react-hooks/exhaustive-deps": "error",
+    "react/prop-types": "off"
   },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"],
       "parserOptions": {
         "project": ["tsconfig.json"]
+      }
+    },
+    {
+      "files": ["./packages/**/stories/*.stories.@(js|jsx|ts|tsx)"],
+      "rules": {
+        "react/jsx-props-no-spreading": ["off"]
       }
     }
   ],

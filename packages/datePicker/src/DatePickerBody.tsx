@@ -1,0 +1,75 @@
+import * as React from 'react';
+import { Dict } from '@/shared/types';
+import * as utils from './utils';
+
+interface DatePickerHeaderProps {
+  defaultDate: number | Date;
+  minDate: number | Date;
+  maxDate: number | Date;
+  getDateFrom: (arg0: number | Date) => void;
+}
+
+const DatePickerBody = ({
+  defaultDate,
+  minDate,
+  maxDate,
+  getDateFrom,
+}: DatePickerHeaderProps): JSX.Element => {
+  const firstDayOfTheMonth: number = utils.getFirstDayOfTheMonth(defaultDate);
+  const lastDateOfThisMonth = utils.getDaysInTheMonth(defaultDate);
+  const lastDateOfPrevMonth: Date = new Date(
+    utils.getYearOfTheGivenDate(defaultDate),
+    utils.getMonthOfTheGivenDate(defaultDate),
+    0,
+  );
+
+  const datesOfTheMonth = Array.from(
+    { length: 7 * utils.getWeekInTheMonth(defaultDate) },
+    (v, i) => {
+      const indexFromFirstDay: number = i - firstDayOfTheMonth + 1;
+      if (i >= firstDayOfTheMonth && indexFromFirstDay <= lastDateOfThisMonth) {
+        const stdDate: number =
+          +lastDateOfPrevMonth + 86400000 * indexFromFirstDay;
+
+        let attribute = 'valid';
+        if (stdDate < +minDate || stdDate > +maxDate) {
+          attribute = 'invalid';
+        }
+        if (+defaultDate === stdDate) {
+          attribute = 'focused';
+        }
+        return { key: stdDate, value: indexFromFirstDay, attribute };
+      }
+
+      return { key: -i, value: '', attribute: 'invalid' };
+    },
+  );
+
+  return (
+    <div className="datepicker-body">
+      {utils.weekdayCodes.map(day => {
+        return (
+          <p className="datepicker-weekdays" key={day.code.toString()}>
+            {day.label}
+          </p>
+        );
+      })}
+      {datesOfTheMonth.map(
+        (date: Dict): JSX.Element => {
+          return (
+            <button
+              type="button"
+              key={date.key.toString()}
+              onClick={() => getDateFrom(date.key)}
+              className={`datepicker-${date.attribute}-dates`}
+            >
+              {date.value}
+            </button>
+          );
+        },
+      )}
+    </div>
+  );
+};
+
+export default React.memo(DatePickerBody);

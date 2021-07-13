@@ -29,9 +29,9 @@ yarn-error.log*
 .idea
 .cache
 
-# storybook
-storybook-static
-stories
-
 # vscode 
 .history
+
+# storybook
+storybook-static
+/stories

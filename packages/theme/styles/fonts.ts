@@ -17,8 +17,8 @@ export const fontSizes = {
 };
 
 export const fontColors = {
-  title: '#000000D9',
-  primary: '#000000D9',
+  title: '#000000d9',
+  primary: '#000000d9',
   secondary: '#00000073',
   disable: '#00000040',
 };

@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { classNames } from '@/color-mode/src/utils';
-import defaultTheme from '@/theme/defaultTheme';
+import { Dict } from '@/shared/types';
 
 const nomarlize = `
   html {
@@ -155,14 +155,40 @@ export default createGlobalStyle`
   ${nomarlize}
   html {
     font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
   }
   button {
     cursor: pointer;
   }
   .${classNames.light} {
-    background-color: ${defaultTheme.colors.light[50]}
+    background-color: ${props =>
+      (props.theme as Dict).backgroundColors.default.primary};
+    color: ${props => (props.theme as Dict).fontColors.default.title};
+
+    input, 
+    .datepicker-calendar button, 
+    .datepicker-header div {
+      color: ${props => (props.theme as Dict).fontColors.default.title};
+    }
+
+    .datepicker-header button {
+      color: #757575; 
+    }
   }
   .${classNames.dark} {
-    background-color: ${defaultTheme.colors.dark[50]}
+    background-color: ${props =>
+      (props.theme as Dict).backgroundColors.dark.primary};
+    color: ${props => (props.theme as Dict).fontColors.dark.title};
+
+    input, 
+    .datepicker-calendar {
+      background-color: ${props => (props.theme as Dict).colors.grey[800]};
+    }
+
+    input, 
+    .datepicker-calendar button, 
+    .datepicker-header {
+      color: ${props => (props.theme as Dict).fontColors.dark.title};
+    }
   }
 `;
