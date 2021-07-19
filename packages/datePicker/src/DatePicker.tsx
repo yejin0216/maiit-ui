@@ -106,6 +106,7 @@ const DatePicker = (props: DatePickerProps): JSX.Element => {
       targetPosition={targetPosition}
       position={position}
       fade={fade}
+      autocomplete
     >
       <input
         type="date"

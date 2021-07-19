@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import { fontSizes } from '@/theme/styles/fonts';
 import { geek } from '@/theme/styles/colors';
-import { classNames } from '@/color-mode/src/utils';
 
 const baseGridStyle = css`
   flex-shrink: 0;
