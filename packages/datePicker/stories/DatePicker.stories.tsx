@@ -54,7 +54,7 @@ export default {
 } as ComponentMeta<typeof DatePickerWrapper>;
 
 const Template: ComponentStory<typeof DatePickerWrapper> = args => (
-  <DatePicker {...args} />
+  <DatePickerWrapper {...args} />
 );
 
 export const InputType = Template.bind({});
