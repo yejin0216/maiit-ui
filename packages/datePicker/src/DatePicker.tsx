@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Dict } from '@/shared/types';
 import { DatePickerProps } from './types';
 import * as utils from './utils';
 import DatePickerContainer from './styles';
@@ -21,43 +20,45 @@ const DatePicker = (props: DatePickerProps): JSX.Element => {
   const [defaultDate, setDefaultDate] = React.useState<number | Date>(
     defaultValue,
   );
-  const [targetPosition, setTargetPosition] = React.useState<Dict>({});
-  const [position, setPosition] = React.useState<Dict>({});
+  // const [targetPosition, setTargetPosition] = React.useState<Dict>({});
+  // const [position, setPosition] = React.useState<Dict>({});
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   const inputRef = React.useRef<HTMLInputElement>(null);
   const calendarRef = React.useRef<HTMLDivElement>(null);
 
-  const handleToggle = (e: MouseEvent): void => {
-    const $target = e.target as HTMLElement;
-    if (e.target === inputRef.current) {
-      e.preventDefault();
-      if (!isOpen) {
-        const $targetPostion = $target.getBoundingClientRect();
-        setTargetPosition(
-          Object.assign($targetPostion, {
-            innerWidth: window.innerWidth,
-            innerHeight: window.innerHeight,
-          }),
-        );
-        const $position = calendarRef?.current?.getBoundingClientRect() ?? {};
-        setPosition($position);
-        setIsOpen(() => true);
+  const handleToggle = React.useCallback(
+    (e: MouseEvent): void => {
+      const $target = e.target as HTMLElement;
+      if (e.target === inputRef.current) {
+        e.preventDefault();
+        if (!isOpen) {
+          // const $targetPostion = $target.getBoundingClientRect();
+          // setTargetPosition(
+          //   Object.assign($targetPostion, {
+          //     innerWidth: window.innerWidth,
+          //     innerHeight: window.innerHeight,
+          //   }),
+          // );
+          // const $position = calendarRef?.current?.getBoundingClientRect() ?? {};
+          // setPosition($position);
+          setIsOpen(() => true);
+        }
+      } else if (calendarRef?.current?.contains($target)) {
+        e.stopPropagation();
+      } else {
+        setIsOpen(() => false);
       }
-    } else if (calendarRef?.current?.contains($target)) {
-      e.stopPropagation();
-    } else {
-      setIsOpen(() => false);
-    }
-  };
+    },
+    [isOpen],
+  );
 
   React.useEffect(() => {
     document.addEventListener('click', handleToggle);
     return () => {
       document.removeEventListener('click', handleToggle);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [handleToggle]);
 
   React.useEffect(() => {
     setDefaultDate(defaultValue);
@@ -101,22 +102,22 @@ const DatePicker = (props: DatePickerProps): JSX.Element => {
 
   return (
     <DatePickerContainer
-      className="datepicker-container"
+      className="maiit-datepicker__container"
       isOpen={isOpen}
-      targetPosition={targetPosition}
-      position={position}
+      // targetPosition={targetPosition}
+      // position={position}
       fade={fade}
       autocomplete
     >
       <input
         type="date"
         ref={inputRef}
-        className="datepicker-input"
+        className="maiit-datepicker__input"
         aria-label="input date"
         readOnly={readOnly}
         onChange={e => handleChange(e, onChange)}
       />
-      <div ref={calendarRef} className="datepicker-calendar">
+      <div ref={calendarRef} className="maiit-datepicker__contents">
         <DatePickerHeader defaultDate={defaultDate} prev={prev} next={next} />
         <DatePickerBody
           defaultDate={defaultDate}

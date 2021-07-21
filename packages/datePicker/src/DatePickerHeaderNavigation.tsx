@@ -5,21 +5,17 @@ import {
   BiChevronLeft,
   BiChevronsLeft,
 } from 'react-icons/bi';
-
-interface NavigationProps {
-  handleClick: (arg0: string) => void;
-}
-
-interface NavigationButtonProps extends NavigationProps {
-  type: 'month' | 'year';
-  icon: JSX.Element;
-}
+import {
+  NavigationButtonProps,
+  NavigationProps,
+  DatePickerNavigationProps,
+} from './types';
 
 const NavigationButton = (props: NavigationButtonProps): JSX.Element => {
   const { type, handleClick, icon } = props;
   return (
     <button
-      className="datepicker-header-navigation"
+      className="header--navigation"
       type="button"
       onClick={() => handleClick(type)}
     >
@@ -63,11 +59,6 @@ const NextNavigation = (props: NavigationProps): JSX.Element => {
     </>
   );
 };
-
-interface DatePickerNavigationProps {
-  children: JSX.Element;
-  handleClick: [(arg0: string) => void, (arg0: string) => void];
-}
 
 const DatePickerHeaderNavigation = (
   props: DatePickerNavigationProps,

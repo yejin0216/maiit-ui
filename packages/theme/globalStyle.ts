@@ -153,9 +153,6 @@ const nomarlize = `
 
 export default createGlobalStyle`
   ${nomarlize}
-  // * {
-  //   box-sizing: border-box;
-  // }
   html {
     font-family: Roboto,Helvetica Neue,sans-serif;
     font-size: 14px;
@@ -164,12 +161,12 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
-  .datepicker-container {
-    .datepicker-header > .datepicker-header-navigation:hover {
+  .maiit-datepicker__container {
+    .maiit-datepicker__header > .header--navigation:hover {
       background-color: #eeeeee;
     }
-    .datepicker-body > .datepicker-valid-dates:hover,
-    .datepicker-body > .datepicker-focused-dates:hover  {
+    .maiit-datepicker__body > .body--dates-valid:hover,
+    .maiit-datepicker__body > .body--dates-invalid:hover  {
       background-color: ${props => (props.theme as Dict).colors.default[100]};
     }
   }
@@ -180,16 +177,16 @@ export default createGlobalStyle`
     color: ${props => (props.theme as Dict).fontColors.default.title};
 
     input, 
-    .datepicker-body button, 
-    .datepicker-header div {
+    .maiit-datepicker__body button, 
+    .maiit-datepicker__header div {
       color: ${props => (props.theme as Dict).fontColors.default.title};
     }
 
-    .datepicker-header button {
+    .maiit-datepicker__header button {
       color: #858585; 
     }
 
-    .datepicker-header-weekdays {
+    .header--weekdays {
       color: #00000061;
     }
   }
@@ -199,13 +196,13 @@ export default createGlobalStyle`
     color: ${props => (props.theme as Dict).fontColors.dark.title};
 
     input, 
-    .datepicker-calendar {
+    .maiit-datepicker__contents {
       background-color: ${props => (props.theme as Dict).colors.grey[800]};
     }
 
     input, 
-    .datepicker-calendar button, 
-    .datepicker-header {
+    .maiit-datepicker__contents button, 
+    .maiit-datepicker__header {
       color: ${props => (props.theme as Dict).fontColors.dark.title};
     }
   }

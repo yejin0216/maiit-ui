@@ -1,13 +1,7 @@
 import * as React from 'react';
 import { Dict } from '@/shared/types';
+import { DatePickerBodyProps } from './types';
 import * as utils from './utils';
-
-interface DatePickerHeaderProps {
-  defaultDate: number | Date;
-  minDate: number | Date;
-  maxDate: number | Date;
-  getDateFrom: (arg0: number | Date) => void;
-}
 
 const today = +utils.getStartOfToday();
 
@@ -16,7 +10,7 @@ const DatePickerBody = ({
   minDate,
   maxDate,
   getDateFrom,
-}: DatePickerHeaderProps): JSX.Element => {
+}: DatePickerBodyProps): JSX.Element => {
   const firstDayOfTheMonth: number = utils.getFirstDayOfTheMonth(defaultDate);
   const lastDateOfThisMonth = utils.getDaysInTheMonth(defaultDate);
   const lastDateOfPrevMonth: Date = new Date(
@@ -47,14 +41,7 @@ const DatePickerBody = ({
   });
 
   return (
-    <div className="datepicker-body">
-      {/* {utils.weekdayCodes.map(day => {
-        return (
-          <p className="datepicker-weekdays" key={day.code.toString()}>
-            {day.label}
-          </p>
-        );
-      })} */}
+    <div className="maiit-datepicker__body">
       {datesOfTheMonth.map(
         (date: Dict): JSX.Element => {
           return (
@@ -62,7 +49,7 @@ const DatePickerBody = ({
               type="button"
               key={date.key.toString()}
               onClick={() => getDateFrom(date.key)}
-              className={`datepicker-${date.attribute}-dates`}
+              className={`body--dates-${date.attribute}`}
             >
               {date.value}
             </button>
