@@ -28,7 +28,7 @@ const Button = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <ButtonInstance
-      aria-label="toggle"
+      aria-label="toggle background color"
       colorMode={colorMode}
       onClick={toggleColorMode}
     >
