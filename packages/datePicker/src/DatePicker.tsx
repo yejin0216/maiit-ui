@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { DatePickerProps } from './types';
+import { DatepickerProps } from './types';
 import * as utils from './utils';
-import DatePickerContainer from './styles';
-import DatePickerHeader from './DatePickerHeader';
-import DatePickerBody from './DatePickerBody';
+import DatepickerContainer from './styles';
+import DatepickerHeader from './DatepickerHeader';
+import DatepickerBody from './DatepickerBody';
 
 const dateFormat = 'yyyy-MM-dd';
 
-const DatePicker = (props: DatePickerProps): JSX.Element => {
+const Datepicker = (props: DatepickerProps): JSX.Element => {
   const {
     defaultValue = utils.getStartOfToday(),
     minDate = new Date(1970, 0, 1),
@@ -101,7 +101,7 @@ const DatePicker = (props: DatePickerProps): JSX.Element => {
   };
 
   return (
-    <DatePickerContainer
+    <DatepickerContainer
       className="maiit-datepicker__container"
       isOpen={isOpen}
       // targetPosition={targetPosition}
@@ -118,16 +118,16 @@ const DatePicker = (props: DatePickerProps): JSX.Element => {
         onChange={e => handleChange(e, onChange)}
       />
       <div ref={calendarRef} className="maiit-datepicker__contents">
-        <DatePickerHeader defaultDate={defaultDate} prev={prev} next={next} />
-        <DatePickerBody
+        <DatepickerHeader defaultDate={defaultDate} prev={prev} next={next} />
+        <DatepickerBody
           defaultDate={defaultDate}
           minDate={minDate}
           maxDate={maxDate}
           getDateFrom={getDateFrom}
         />
       </div>
-    </DatePickerContainer>
+    </DatepickerContainer>
   );
 };
 
-export default DatePicker;
+export default Datepicker;

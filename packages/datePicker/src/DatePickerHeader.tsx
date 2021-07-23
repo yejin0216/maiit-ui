@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { __DEV__ } from '@/shared/constants';
 import * as utils from './utils';
-import { DatePickerHeaderProps } from './types';
-import DatePickerHeaderNavigation from './DatePickerHeaderNavigation';
+import { DatepickerHeaderProps } from './types';
+import DatepickerHeaderNavigation from './DatepickerHeaderNavigation';
 
-const DatePickerWeekdays = React.memo(
+const DatepickerWeekdays = React.memo(
   (): JSX.Element => (
     <div className="header--weekdays-group">
       {utils.weekdayCodes.map(day => {
@@ -19,24 +19,24 @@ const DatePickerWeekdays = React.memo(
 );
 
 if (__DEV__) {
-  DatePickerWeekdays.displayName = 'DatePickerWeekdays';
+  DatepickerWeekdays.displayName = 'DatepickerWeekdays';
 }
 
-const DatePickerHeader = ({
+const DatepickerHeader = ({
   defaultDate,
   prev,
   next,
-}: DatePickerHeaderProps): JSX.Element => (
+}: DatepickerHeaderProps): JSX.Element => (
   <>
     <div className="maiit-datepicker__header">
-      <DatePickerHeaderNavigation handleClick={[prev, next]}>
+      <DatepickerHeaderNavigation handleClick={[prev, next]}>
         <div className="header__label">
           {utils.dateFormatter(defaultDate, 'MMM yyyy')}
         </div>
-      </DatePickerHeaderNavigation>
+      </DatepickerHeaderNavigation>
     </div>
-    <DatePickerWeekdays />
+    <DatepickerWeekdays />
   </>
 );
 
-export default React.memo(DatePickerHeader);
+export default React.memo(DatepickerHeader);

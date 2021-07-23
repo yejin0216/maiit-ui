@@ -8,7 +8,7 @@ import {
 import {
   NavigationButtonProps,
   NavigationProps,
-  DatePickerNavigationProps,
+  DatepickerNavigationProps,
 } from './types';
 
 const NavigationButton = (props: NavigationButtonProps): JSX.Element => {
@@ -60,8 +60,8 @@ const NextNavigation = (props: NavigationProps): JSX.Element => {
   );
 };
 
-const DatePickerHeaderNavigation = (
-  props: DatePickerNavigationProps,
+const DatepickerHeaderNavigation = (
+  props: DatepickerNavigationProps,
 ): JSX.Element => {
   const { children, handleClick } = props;
   const [prev, next] = [...handleClick];
@@ -74,4 +74,4 @@ const DatePickerHeaderNavigation = (
   );
 };
 
-export default DatePickerHeaderNavigation;
+export default DatepickerHeaderNavigation;

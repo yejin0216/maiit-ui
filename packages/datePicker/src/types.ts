@@ -1,4 +1,4 @@
-export interface DatePickerProps {
+export interface DatepickerProps {
   defaultValue?: number | Date;
   minDate?: number | Date;
   maxDate?: number | Date;
@@ -7,13 +7,13 @@ export interface DatePickerProps {
   onChange: (arg0: React.ChangeEvent) => void;
 }
 
-export interface DatePickerHeaderProps {
+export interface DatepickerHeaderProps {
   defaultDate: number | Date;
   prev: (arg0: string) => void;
   next: (arg0: string) => void;
 }
 
-export interface DatePickerBodyProps {
+export interface DatepickerBodyProps {
   defaultDate: number | Date;
   minDate: number | Date;
   maxDate: number | Date;
@@ -29,7 +29,7 @@ export interface NavigationButtonProps extends NavigationProps {
   icon: JSX.Element;
 }
 
-export interface DatePickerNavigationProps {
+export interface DatepickerNavigationProps {
   children: JSX.Element;
   handleClick: [(arg0: string) => void, (arg0: string) => void];
 }

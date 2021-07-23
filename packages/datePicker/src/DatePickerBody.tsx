@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { Dict } from '@/shared/types';
-import { DatePickerBodyProps } from './types';
+import { DatepickerBodyProps } from './types';
 import * as utils from './utils';
 
 const today = +utils.getStartOfToday();
 
-const DatePickerBody = ({
+const DatepickerBody = ({
   defaultDate,
   minDate,
   maxDate,
   getDateFrom,
-}: DatePickerBodyProps): JSX.Element => {
+}: DatepickerBodyProps): JSX.Element => {
   const firstDayOfTheMonth: number = utils.getFirstDayOfTheMonth(defaultDate);
   const lastDateOfThisMonth = utils.getDaysInTheMonth(defaultDate);
   const lastDateOfPrevMonth: Date = new Date(
@@ -60,4 +60,4 @@ const DatePickerBody = ({
   );
 };
 
-export default React.memo(DatePickerBody);
+export default React.memo(DatepickerBody);

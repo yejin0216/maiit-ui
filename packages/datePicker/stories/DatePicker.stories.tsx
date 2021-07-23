@@ -1,17 +1,18 @@
 import * as React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import DatePicker from '../src/DatePicker';
-import { DatePickerProps } from '../src/types';
+import Datepicker from '../src/Datepicker';
+import { DatepickerProps } from '../src/types';
 import * as utils from '../src/utils';
 
-const DatePickerWrapper = (props: DatePickerProps) => {
-  return <DatePicker {...props} />;
+const DatepickerWrapper = (props: DatepickerProps) => {
+  return <Datepicker {...props} />;
 };
 
 export default {
-  title: 'Date Picker',
-  component: DatePickerWrapper,
+  title: 'DATETIME/Datepicker',
+  component: DatepickerWrapper,
   parameters: {
+    layout: 'centered',
     docs: {
       description: {
         component: `You can pick a date from the widget and return it.<br/>
@@ -51,14 +52,15 @@ export default {
     //   description: 'Minimum selectable date',
     // },
   },
-} as ComponentMeta<typeof DatePickerWrapper>;
+} as ComponentMeta<typeof DatepickerWrapper>;
 
-const Template: ComponentStory<typeof DatePickerWrapper> = args => (
-  <DatePickerWrapper {...args} />
+const Template: ComponentStory<typeof DatepickerWrapper> = args => (
+  <DatepickerWrapper {...args} />
 );
 
-export const InputType = Template.bind({});
-InputType.args = {
+export const basic = Template.bind({});
+basic.storyName = '기본';
+basic.args = {
   fade: true,
   defaultValue: utils.getStartOfToday(),
   minDate: utils.subPeriod('year', utils.getStartOfToday(), 1),

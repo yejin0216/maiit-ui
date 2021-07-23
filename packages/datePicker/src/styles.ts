@@ -1,21 +1,22 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { fontSizes } from '@/theme/styles/fonts';
 import { MAIIT_DATEPICKER } from '@/theme/styles/constants';
+import { Dict } from '@/shared/types';
 
-const baseGridStyle = css`
+const baseGridStyle = `
   flex-shrink: 0;
   display: grid;
-  grid-template-columns: repeat(7, 40px);
-  grid-auto-rows: 40px;
+  grid-template-columns: repeat(7, 36px);
+  grid-auto-rows: 36px;
   row-gap: 2px;
   padding: 0 8px;
   place-items: center;
   user-select: none;
 `;
 
-const baseGridItemStyles = css`
-  width: 40px;
-  height: 40px;
+const baseGridItemStyles = `
+  width: 36px;
+  height: 36px;
   display: flex;
   margin: 0;
   align-items: center;
@@ -25,12 +26,12 @@ const baseGridItemStyles = css`
   border-radius: 50%;
 `;
 
-const baseDateBlockStyles = css`
+const baseDateBlockStyles = `
   border: none;
   background: none;
 `;
 
-const DatePickerContainer = styled.div.attrs(props => {
+const DatepickerContainer = styled.div.attrs(props => {
   props.className as string;
 })`
   .${MAIIT_DATEPICKER}__input {
@@ -40,24 +41,22 @@ const DatePickerContainer = styled.div.attrs(props => {
     font-size: ${fontSizes.md};
     font-weight: 400;
     border: none;
-    border-bottom: 1px solid #929292;
+    border-bottom: 1px solid #bbb;
     padding: 0.375rem 0.75rem;
     cursor: pointer;
   }
 
   .${MAIIT_DATEPICKER}__contents {
-    z-index: 10001;
+    z-index: 10000;
     position: absolute;
     word-break: break-all;
     text-align: left;
     height: auto;
     width: auto;
-    border-radius: 3px;
     font-size: ${fontSizes.md};
-    box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%),
-      0 1px 10px 0 rgb(0 0 0 / 12%);
+    border: 1px solid #121212;
     transform-origin: top left;
-    transform: translate(0px, 0px);
+    transform: translate(0px, 5px);
     visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
     opacity: ${props => (props.isOpen ? 1 : 0)};
     transition: ${props =>
@@ -69,7 +68,7 @@ const DatePickerContainer = styled.div.attrs(props => {
     height: 40px;
     letter-spacing: 0.03125rem;
     text-transform: uppercase;
-    padding: 16px;
+    padding: 10px;
 
     .header__label {
       flex-grow: 1;
@@ -88,17 +87,22 @@ const DatePickerContainer = styled.div.attrs(props => {
       background: none;
       border-radius: 50%;
       font-size: ${fontSizes['3xl']};
+      color: #aaaaaa;
+
+      &:hover {
+        background-color: #eeeeee;
+      }
     }
   }
 
   .header--weekdays-group {
     ${baseGridStyle}
     margin-bottom: 8px;
-    border-bottom: 1px solid #e0e0e0;
 
     .header--weekdays {
       ${baseGridItemStyles};
-      font-size: ${fontSizes.sm};
+      font-size: ${fontSizes['2xs']};
+      color: #909090;
     }
   }
 
@@ -121,8 +125,15 @@ const DatePickerContainer = styled.div.attrs(props => {
       ${baseDateBlockStyles};
       border: 1px solid #757575;
       cursor: pointer;
+      background-color: ${props => (props.theme as Dict).colors.default[100]};
+    }
+
+    .body--dates-valid {
+      &:hover {
+        background-color: ${props => (props.theme as Dict).colors.default[100]};
+      }
     }
   }
 `;
 
-export default DatePickerContainer;
+export default DatepickerContainer;
