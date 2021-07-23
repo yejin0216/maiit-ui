@@ -12,7 +12,8 @@ interface buttonProps {
 }
 
 const ButtonInstance = styled.button<buttonProps>`
-  float: right;
+  position: absolute;
+  right: 10px;
   font-size: ${fontSizes.xl};
   font-weight: 700;
   line-height: 1;
