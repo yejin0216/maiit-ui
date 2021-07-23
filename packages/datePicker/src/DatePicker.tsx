@@ -20,8 +20,6 @@ const Datepicker = (props: DatepickerProps): JSX.Element => {
   const [defaultDate, setDefaultDate] = React.useState<number | Date>(
     defaultValue,
   );
-  // const [targetPosition, setTargetPosition] = React.useState<Dict>({});
-  // const [position, setPosition] = React.useState<Dict>({});
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -33,15 +31,6 @@ const Datepicker = (props: DatepickerProps): JSX.Element => {
       if (e.target === inputRef.current) {
         e.preventDefault();
         if (!isOpen) {
-          // const $targetPostion = $target.getBoundingClientRect();
-          // setTargetPosition(
-          //   Object.assign($targetPostion, {
-          //     innerWidth: window.innerWidth,
-          //     innerHeight: window.innerHeight,
-          //   }),
-          // );
-          // const $position = calendarRef?.current?.getBoundingClientRect() ?? {};
-          // setPosition($position);
           setIsOpen(() => true);
         }
       } else if (calendarRef?.current?.contains($target)) {

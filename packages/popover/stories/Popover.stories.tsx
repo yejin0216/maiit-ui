@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import styled from 'styled-components';
 import { PopperProps } from '@/popper';
 import {
   Popover,
@@ -9,13 +10,27 @@ import {
   PopoverBody,
 } from '@/popover';
 
+const Button = styled.button`
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  border: 0;
+  border-radius: 3em;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  color: white;
+  background-color: #1ea7fd;
+  font-size: 14px;
+  padding: 11px 20px;
+`;
+
 const PopoverWrapper = (props: PopperProps) => {
   return (
     <Popover {...props}>
       <PopoverTrigger>
-        <button type="button" id="popover-example">
+        <Button type="button" id="popover-example">
           Open Popover
-        </button>
+        </Button>
       </PopoverTrigger>
       <PopoverContents>
         <PopoverHeader>Popover Title</PopoverHeader>
@@ -33,9 +48,10 @@ const PopoverWrapper = (props: PopperProps) => {
 };
 
 export default {
-  title: 'Popover',
+  title: 'OVERLAY/Popover',
   component: PopoverWrapper,
   parameters: {
+    layout: 'centered',
     docs: {
       description: {
         component: `You can pick a date from the widget and return it.<br/>
@@ -51,6 +67,7 @@ export default {
       },
     },
     placement: {
+      control: { type: 'select', options: ['top', 'right', 'bottom', 'left'] },
       description: 'Whether transition is applied',
       table: {
         defaultValue: { summary: 'bottom' },
@@ -69,8 +86,9 @@ const Template: ComponentStory<typeof PopoverWrapper> = args => (
   <PopoverWrapper {...args} />
 );
 
-export const Basic = Template.bind({});
-Basic.args = {
+export const basic = Template.bind({});
+basic.storyName = '기본';
+basic.args = {
   trigger: 'click',
   placement: 'bottom',
   fade: true,

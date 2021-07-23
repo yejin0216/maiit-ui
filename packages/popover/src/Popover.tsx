@@ -5,47 +5,60 @@ import {
   PopperTriggerWrapper,
   PopperProps,
   PopperTriggerProps,
-  PopperOrigin,
 } from '@/popper';
-import { popoverContentStyle } from './styled';
+import {
+  popoverContentStyle,
+  HeaderTitle,
+  BodyContents,
+  PopperContainer,
+  Arrow,
+} from './styled';
+import { PopoverContentsProps } from './types';
 
 export const PopoverHeader: React.FC = ({ children }): JSX.Element => {
-  return <div className="popper-header">{children}</div>;
+  return (
+    <HeaderTitle className="maiit-popover__header">{children}</HeaderTitle>
+  );
 };
 
 export const PopoverBody: React.FC = ({ children }): JSX.Element => {
-  return <div className="popper-body">{children}</div>;
+  return (
+    <BodyContents className="maiit-popover__body">{children}</BodyContents>
+  );
 };
-
-export interface PopoverContentsProps extends PopperOrigin {
-  isOpen?: boolean;
-  children: React.ReactNode;
-}
 
 export const PopoverContents = ({
   placement: activePlacement,
   isOpen,
+  fade,
   children,
 }: PopoverContentsProps): JSX.Element => {
   return (
-    <>
-      {isOpen ? (
-        <Popper placement={activePlacement}>
-          {({ ref, style, placement, arrowProps }) => {
-            return (
-              <div
-                className="popper-container"
-                ref={ref}
-                style={{ ...popoverContentStyle, ...style }}
+    <PopperContainer isOpen={isOpen} fade={fade}>
+      <Popper
+        placement={activePlacement}
+        modifiers={[{ name: 'offset', options: { offset: [0, 8] } }]}
+      >
+        {({ ref, style, placement, arrowProps }) => {
+          return (
+            <div
+              className="maiit-popover__container"
+              ref={ref}
+              style={{ ...popoverContentStyle, ...style }}
+              data-placement={placement}
+            >
+              {children}
+              <Arrow
+                className="container--arrow"
+                ref={arrowProps.ref}
                 data-placement={placement}
-              >
-                {children}
-              </div>
-            );
-          }}
-        </Popper>
-      ) : null}
-    </>
+                style={arrowProps.style}
+              />
+            </div>
+          );
+        }}
+      </Popper>
+    </PopperContainer>
   );
 };
 
@@ -54,7 +67,7 @@ export const PopoverTrigger = (props: PopperTriggerProps): JSX.Element => {
 };
 
 const Popover = (props: PopperProps): JSX.Element => {
-  return <PopperWrapper {...props} />;
+  return <PopperWrapper {...props} triggerComponent={PopoverTrigger} />;
 };
 
 export default Popover;

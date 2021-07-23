@@ -11,6 +11,10 @@ export interface PopperProps extends PopperOrigin {
   children: React.ReactNode;
 }
 
+export interface PopperWrapperProps extends PopperProps {
+  triggerComponent: React.ReactNode;
+}
+
 export interface PopperTriggerProps {
   trigger?: string;
   handleActive?: () => void;

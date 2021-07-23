@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Manager, Reference } from 'react-popper';
-import { PopoverTrigger } from '@/popover';
-import { PopperProps, PopperTriggerProps } from './types';
+import { PopperWrapperProps, PopperTriggerProps } from './types';
 
 export const PopperTriggerWrapper = ({
   trigger,
@@ -25,8 +24,9 @@ const PopperWrapper = ({
   placement = 'bottom',
   fade = true,
   style = {},
+  triggerComponent,
   children,
-}: PopperProps): JSX.Element => {
+}: PopperWrapperProps): JSX.Element => {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   const handleActive = () => {
@@ -36,12 +36,13 @@ const PopperWrapper = ({
   const nodes = React.Children.map(children, child => {
     const ele = child as React.ReactElement;
 
-    if (ele.type === PopoverTrigger) {
+    if (ele.type === triggerComponent) {
       return React.cloneElement(ele, { trigger, handleActive });
     }
     return React.cloneElement(ele, {
       placement,
       isOpen,
+      fade,
     });
   });
 
