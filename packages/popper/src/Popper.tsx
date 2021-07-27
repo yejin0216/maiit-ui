@@ -13,7 +13,11 @@ export const PopperTriggerWrapper = ({
       {({ ref }) => {
         return trigger === 'click'
           ? React.cloneElement(child, { ref, onClick: handleActive })
-          : React.cloneElement(child, { ref, onHover: handleActive });
+          : React.cloneElement(child, {
+              ref,
+              onMouseOver: handleActive,
+              onMouseOut: handleActive,
+            });
       }}
     </Reference>
   );
@@ -22,7 +26,6 @@ export const PopperTriggerWrapper = ({
 const PopperWrapper = ({
   trigger = 'click',
   placement = 'bottom',
-  fade = true,
   style = {},
   triggerComponent,
   children,
@@ -42,7 +45,6 @@ const PopperWrapper = ({
     return React.cloneElement(ele, {
       placement,
       isOpen,
-      fade,
     });
   });
 

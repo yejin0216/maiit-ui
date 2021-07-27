@@ -30,11 +30,10 @@ export const PopoverBody: React.FC = ({ children }): JSX.Element => {
 export const PopoverContents = ({
   placement: activePlacement,
   isOpen,
-  fade,
   children,
 }: PopoverContentsProps): JSX.Element => {
   return (
-    <PopperContainer isOpen={isOpen} fade={fade}>
+    <PopperContainer isOpen={isOpen}>
       <Popper
         placement={activePlacement}
         modifiers={[{ name: 'offset', options: { offset: [0, 8] } }]}
@@ -49,7 +48,7 @@ export const PopoverContents = ({
             >
               {children}
               <Arrow
-                className="container--arrow"
+                className="maiit-popover__arrow"
                 ref={arrowProps.ref}
                 data-placement={placement}
                 style={arrowProps.style}

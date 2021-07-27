@@ -12,32 +12,34 @@ const DatepickerBody = ({
   getDateFrom,
 }: DatepickerBodyProps): JSX.Element => {
   const firstDayOfTheMonth: number = utils.getFirstDayOfTheMonth(defaultDate);
-  const lastDateOfThisMonth = utils.getDaysInTheMonth(defaultDate);
-  const lastDateOfPrevMonth: Date = new Date(
+  const lastDateOfThisMonth: number = utils.getDaysInTheMonth(defaultDate);
+  const defaultStdDate: number = +new Date(
     utils.getYearOfTheGivenDate(defaultDate),
     utils.getMonthOfTheGivenDate(defaultDate),
     0,
   );
 
-  const datesOfTheMonth = Array.from({ length: 42 }, (v, i) => {
-    const indexFromFirstDay: number = i - firstDayOfTheMonth + 1;
-
-    if (i >= firstDayOfTheMonth && indexFromFirstDay <= lastDateOfThisMonth) {
-      const stdDate: number =
-        +lastDateOfPrevMonth + 86400000 * indexFromFirstDay;
-      const result = { key: stdDate, value: indexFromFirstDay };
+  const datesOfTheMonth = Array.from({ length: 7 * 6 }, (v, i) => {
+    if (
+      i >= firstDayOfTheMonth &&
+      i < lastDateOfThisMonth + firstDayOfTheMonth
+    ) {
+      const date = i - firstDayOfTheMonth + 1;
+      const stdDate = date * 86400000 + defaultStdDate;
+      const result = { key: stdDate, value: date };
 
       if (stdDate < +minDate || stdDate > +maxDate) {
-        return Object.assign(result, { attribute: 'invalid' });
-      }
-      if (today === stdDate) {
-        return Object.assign(result, { attribute: 'focused' });
+        return { ...result, ...{ attribute: 'invalid' } };
       }
 
-      return Object.assign(result, { attribute: 'valid' });
+      if (today === stdDate) {
+        return { ...result, ...{ attribute: 'focused' } };
+      }
+
+      return { ...result, ...{ attribute: 'valid' } };
     }
 
-    return { key: -i, value: '', attribute: 'invalid' };
+    return { key: i, value: '', attribute: 'invalid' };
   });
 
   return (

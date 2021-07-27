@@ -12,16 +12,18 @@ import {
 
 const Button = styled.button`
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  border: 0;
-  border-radius: 3em;
   cursor: pointer;
   display: inline-block;
   line-height: 1;
   color: white;
-  background-color: #1ea7fd;
+  width: 102px;
+  height: 34px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #ff464b;
   font-size: 14px;
   padding: 11px 20px;
+  margin: 0px;
 `;
 
 const PopoverWrapper = (props: PopperProps) => {
@@ -29,7 +31,7 @@ const PopoverWrapper = (props: PopperProps) => {
     <Popover {...props}>
       <PopoverTrigger>
         <Button type="button" id="popover-example">
-          Open Popover
+          POPOVER
         </Button>
       </PopoverTrigger>
       <PopoverContents>
@@ -54,29 +56,40 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component: `You can pick a date from the widget and return it.<br/>
-        ✳︎ If the example does not work properly, please view in [new window].`,
+        component:
+          'If the example does not work properly, please view in [new window].',
       },
     },
   },
   argTypes: {
     trigger: {
+      options: ['click', 'hover'],
+      control: {
+        type: 'radio',
+        labels: {
+          click: 'click',
+          hover: 'hover',
+        },
+      },
       description: 'Whether the input box is readonly',
       table: {
         defaultValue: { summary: 'click' },
       },
     },
     placement: {
-      control: { type: 'select', options: ['top', 'right', 'bottom', 'left'] },
+      options: ['top', 'right', 'bottom', 'left'],
+      control: {
+        type: 'radio',
+        labels: {
+          top: 'top',
+          right: 'right',
+          bottom: 'bottom',
+          left: 'left',
+        },
+      },
       description: 'Whether transition is applied',
       table: {
         defaultValue: { summary: 'bottom' },
-      },
-    },
-    fade: {
-      description: 'Whether transition is applied',
-      table: {
-        defaultValue: { summary: true },
       },
     },
   },
@@ -91,6 +104,5 @@ basic.storyName = '기본';
 basic.args = {
   trigger: 'click',
   placement: 'bottom',
-  fade: true,
   style: {},
 };

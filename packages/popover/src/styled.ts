@@ -30,14 +30,14 @@ export const PopperContainer = styled.div`
   visibility: ${(props: Partial<PopoverContentsProps>) =>
     props.isOpen ? 'visible' : 'hidden'};
   opacity: ${(props: Partial<PopoverContentsProps>) => (props.isOpen ? 1 : 0)};
-  transition: ${props =>
-    props.fade ? 'visibility 0.3s linear, opacity 0.3s' : 0};
+  transition: ${(props: Partial<PopoverContentsProps>) =>
+    props.isOpen ? 'visibility 0.3s linear, opacity 0.3s' : 0};
 `;
 
 const arrowStyle = `
-  width: 10px;
-  height: 10px;
-  background-color: inherit;
+  width: 5px;
+  height: 5px;
+  background-color: transparent !important;
 `;
 
 const arrowChildStyle = `
@@ -45,7 +45,6 @@ content: '';
 position: absolute;
 width: 10px;
 height: 10px;
-background-color: inherit;
 border-left: 1px solid #e2e8f0;
 border-top: 1px solid #e2e8f0;
 border-right: none;

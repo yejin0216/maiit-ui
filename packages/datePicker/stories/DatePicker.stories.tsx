@@ -15,8 +15,8 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component: `You can pick a date from the widget and return it.<br/>
-        ✳︎ If the example does not work properly, please view in [new window].`,
+        component:
+          'If the example does not work properly, please view in [new window].',
       },
     },
   },

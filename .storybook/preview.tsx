@@ -13,7 +13,7 @@ interface buttonProps {
 
 const ButtonInstance = styled.button<buttonProps>`
   position: absolute;
-  right: 10px;
+  right: 20px;
   font-size: ${fontSizes.xl};
   font-weight: 700;
   line-height: 1;
@@ -41,7 +41,7 @@ const Button = () => {
 export const decorators = [
   (Story: Function) => {
     return (
-      <div id="story-wrapper" style={{ minHeight: '100vh' }}>
+      <div id="story-wrapper" style={{ minHeight: '50vh' }}>
         <MAIITThemeProvider>
           <Button />
           <Story />
