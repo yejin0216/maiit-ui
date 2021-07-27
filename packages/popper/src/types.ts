@@ -6,6 +6,7 @@ export interface PopperOrigin {
 
 export interface PopperProps extends PopperOrigin {
   trigger?: 'click' | 'hover';
+  label?: string;
   style?: Dict;
   children: React.ReactNode;
 }

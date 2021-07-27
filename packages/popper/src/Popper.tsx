@@ -38,7 +38,6 @@ const PopperWrapper = ({
 
   const nodes = React.Children.map(children, child => {
     const ele = child as React.ReactElement;
-
     if (ele.type === triggerComponent) {
       return React.cloneElement(ele, { trigger, handleActive });
     }

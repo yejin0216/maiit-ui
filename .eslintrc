@@ -31,8 +31,11 @@
     "import/namespace": "off",
     "import/no-extraneous-dependencies": "off",
     "react/require-default-props": "off",
+    "react/destructuring-assignment": "off",
     "react-hooks/exhaustive-deps": "error",
-    "react/prop-types": "off"
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "off",
+    "consistent-return": "off"
   },
   "overrides": [
     {
@@ -45,6 +48,13 @@
       "files": ["./packages/**/stories/*.stories.@(js|jsx|ts|tsx)"],
       "rules": {
         "react/jsx-props-no-spreading": ["off"]
+      }
+    },
+    {
+      "files": ["./packages/shared/constants.ts"],
+      "rules": {
+        "no-underscore-dangle": ["off"],
+        "@typescript-eslint/naming-convention": ["off"]
       }
     }
   ],

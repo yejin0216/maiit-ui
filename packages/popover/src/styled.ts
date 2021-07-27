@@ -8,7 +8,7 @@ export const popoverContentStyle: CSS.Properties = {
   wordBreak: 'break-all',
   textAlign: 'left',
   border: '1px solid #e2e8f0',
-  borderRadius: '5px',
+  borderRadius: '0.375rem',
   boxShadow: 'rgba(0, 0, 0, 0.05) 0px 1px 2px 0px',
 };
 
@@ -18,12 +18,16 @@ export const HeaderTitle = styled.header.attrs(props => {
   padding: 12px;
   overflow-wrap: break-word;
   border-bottom: 1px solid #e2e8f0;
+  border-top-right-radius: 0.375rem;
+  border-top-left-radius: 0.375rem;
 `;
 
 export const BodyContents = styled.div.attrs(props => {
   props.className as string;
 })`
   padding: 8px 12px;
+  border-bottom-right-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
 `;
 
 export const PopperContainer = styled.div`
