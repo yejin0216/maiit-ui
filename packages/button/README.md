@@ -20,27 +20,21 @@ The Button component is used to trigger an action or event, such as submitting a
 
 - color
 
-  | Type                                                                                                                                                                | default   |
-  | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------- |
-  | "primary" \| "primary sub1" \| "primary sub2" \| "secondary" \| "secondary sub1" \| "secondary sub2" \| "dgray" \| "lgray" \| "white" \| "black" \| string(#RRGGBB) | "primary" |
+  | Type                     | default   |
+  | :----------------------- | :-------- |
+  | "primary" \| "secondary" | "primary" |
 
 - size
 
   | Type                         | default |
   | :--------------------------- | :------ |
-  | "sm" \| "md" \| "lg" \| "xs" | "md"    |
+  | "xs" \| "sm" \| "md" \| "lg" | "md"    |
 
 - variant
 
-  | Description                                               | default |
-  | :-------------------------------------------------------- | :------ |
-  | if `true`, the button will be styled in its active state. | boolean |
-
-- active
-
-  | Description                                               | Type    | Default |
-  | :-------------------------------------------------------- | :------ | :------ |
-  | if `true`, the button will be styled in its active state. | boolean | true    |
+  | Type                  | default |
+  | :-------------------- | :------ |
+  | "solid" \| "outlined" | "solid" |
 
 - disabled
 
