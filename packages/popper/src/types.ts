@@ -1,7 +1,22 @@
 import { Dict } from '@/shared/types';
 
 export interface PopperOrigin {
-  placement?: 'top' | 'bottom' | 'right' | 'left';
+  placement?:
+    | 'bottom'
+    | 'left'
+    | 'right'
+    | 'top'
+    | 'auto'
+    | 'auto-start'
+    | 'auto-end'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right-start'
+    | 'right-end'
+    | 'left-start'
+    | 'left-end';
 }
 
 export interface PopperProps extends PopperOrigin {

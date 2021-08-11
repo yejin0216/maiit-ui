@@ -1,29 +1,13 @@
 import * as React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import styled from 'styled-components';
 import { PopperProps } from '@/popper';
 import { Tooltip } from '@/tooltip';
-
-const Button = styled.button`
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  cursor: pointer;
-  display: inline-block;
-  line-height: 1;
-  color: white;
-  width: 102px;
-  height: 34px;
-  border: 0;
-  border-radius: 5px;
-  background-color: #ff464b;
-  font-size: 14px;
-  padding: 11px 20px;
-  margin: 0px;
-`;
+import Button from '@/button/src/Button';
 
 const TooltipStory = (props: PopperProps) => {
   return (
     <Tooltip {...props}>
-      <Button type="button" id="tooltip-example">
+      <Button color="primary" size="md">
         TOOLTIP
       </Button>
     </Tooltip>
@@ -64,14 +48,41 @@ export default {
       },
     },
     placement: {
-      options: ['top', 'right', 'bottom', 'left'],
+      options: [
+        'bottom',
+        'left',
+        'right',
+        'top',
+        'auto',
+        'auto-start',
+        'auto-end',
+        'top-start',
+        'top-end',
+        'bottom-start',
+        'bottom-end',
+        'right-start',
+        'right-end',
+        'left-start',
+        'left-end',
+      ],
       control: {
-        type: 'radio',
+        type: 'select',
         labels: {
-          top: 'top',
-          right: 'right',
           bottom: 'bottom',
           left: 'left',
+          right: 'right',
+          top: 'top',
+          auto: 'auto',
+          'auto-start': 'auto-start',
+          'auto-end': 'auto-end',
+          'top-start': 'top-start',
+          'top-end': 'top-end',
+          'bottom-start': 'bottom-start',
+          'bottom-end': 'bottom-end',
+          'right-start': 'right-start',
+          'right-end': 'right-end',
+          'left-start': 'left-start',
+          'left-end': 'left-end',
         },
       },
       description: 'Tooltip position',

@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { classNames } from '@/color-mode/src/utils';
 import { Dict } from '@/shared/types';
+import modal from './components/modal';
 
 const nomarlize = `
   html {
@@ -158,28 +159,23 @@ export default createGlobalStyle`
     font-family: Roboto,Helvetica Neue,sans-serif;
     font-size: 14px;
   }
-  button {
-    cursor: pointer;
-  }
+  ${modal}
 
   .${classNames.light} {
-    background-color: ${props =>
-      (props.theme as Dict).backgroundColors.default.primary};
-    color: ${props => (props.theme as Dict).fontColors.default.title};
+    background-color: ${props => (props.theme as Dict).background.light.color};
+    color: ${props => (props.theme as Dict).font.colors.light.title};
     
     *[class*="maiit-"], *[class*="maiit-"]::before {
-      background-color: ${props =>
-        (props.theme as Dict).backgroundColors.default.primary};
+      background-color: ${props => (props.theme as Dict).colors.neutral.white};
     }
   }
   
   .${classNames.dark} {
-    background-color: ${props =>
-      (props.theme as Dict).backgroundColors.dark.primary};
-    color: ${props => (props.theme as Dict).fontColors.dark.title};
+    background-color: ${props => (props.theme as Dict).background.dark.color};
+    color: ${props => (props.theme as Dict).font.colors.dark.title};
 
     *[class*="maiit-"], *[class*="maiit-"]::before {
-      background-color: ${props => (props.theme as Dict).colors.grey[800]};
+      background-color: ${props => (props.theme as Dict).colors.neutral.dgray};
     }
 
     input[type="date"]::-webkit-calendar-picker-indicator {

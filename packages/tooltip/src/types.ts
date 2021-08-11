@@ -7,6 +7,6 @@ export interface TooltipContentsProps extends PopperOrigin {
 
 export interface TooltipLabelProps {
   update: () => void;
-  label: string;
+  label?: string;
   children?: React.ReactNode;
 }

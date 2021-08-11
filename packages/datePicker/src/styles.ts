@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { fontSizes } from '@/theme/styles/fonts';
 import { MAIIT_DATEPICKER } from '@/theme/styles/constants';
 import { Dict } from '@/shared/types';
 
@@ -38,7 +37,7 @@ const DatepickerContainer = styled.div.attrs(props => {
     display: inline-block;
     width: 200px;
     height: 30px;
-    font-size: ${fontSizes.md};
+    font-size: ${props => (props.theme as Dict).font.sizes.md};
     font-weight: 400;
     border: none;
     border-bottom: 1px solid #bbb;
@@ -53,7 +52,7 @@ const DatepickerContainer = styled.div.attrs(props => {
     text-align: left;
     height: auto;
     width: auto;
-    font-size: ${fontSizes.md};
+    font-size: ${props => (props.theme as Dict).font.sizes.md};
     border: 1px solid #121212;
     transform-origin: top left;
     transform: translate(0px, 5px);
@@ -86,7 +85,7 @@ const DatepickerContainer = styled.div.attrs(props => {
       min-width: 40px;
       background: none;
       border-radius: 50%;
-      font-size: ${fontSizes['3xl']};
+      font-size: ${props => (props.theme as Dict).font.sizes['3xl']};
       color: #aaaaaa;
 
       &:hover {
@@ -101,7 +100,7 @@ const DatepickerContainer = styled.div.attrs(props => {
 
     .header--weekdays {
       ${baseGridItemStyles};
-      font-size: ${fontSizes['2xs']};
+      font-size: ${props => (props.theme as Dict).font.sizes['2xs']};
       color: #909090;
     }
   }
@@ -125,12 +124,14 @@ const DatepickerContainer = styled.div.attrs(props => {
       ${baseDateBlockStyles};
       border: 1px solid #757575;
       cursor: pointer;
-      background-color: ${props => (props.theme as Dict).colors.default[100]};
+      background-color: ${props =>
+        (props.theme as Dict).colors.secondary.sub1}80;
     }
 
     .body--dates-valid {
       &:hover {
-        background-color: ${props => (props.theme as Dict).colors.default[100]};
+        background-color: ${props =>
+          (props.theme as Dict).colors.secondary.sub1}80;
       }
     }
   }

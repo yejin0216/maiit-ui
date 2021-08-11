@@ -1,51 +1,65 @@
-export default {
+import { Dict } from '@/shared/types';
+
+const defaultTheme: Dict = {
   colors: {
-    default: {
-      // 50: '#e6fffa',
-      50: '#ffffff',
-      100: '#b2f5ea',
-      200: '#81e6d9',
-      300: '#4fd1c5',
-      400: '#38b2ac',
-      500: '#319795',
-      600: '#2c7a7b',
-      700: '#285e61',
-      800: '#234e52',
-      900: '#1d4044',
+    primary: {
+      default: '#ed1c24',
+      sub1: '#f27173',
+      sub2: '#800f14',
     },
-    grey: {
-      50: '#fafafa',
-      100: '#f5f5f5',
-      200: '#eeeeee',
-      300: '#e0e0e0',
-      400: '#bdbdbd',
-      500: '#9e9e9e',
-      600: '#757575',
-      700: '#616161',
-      800: '#424242',
-      900: '#212121',
+    secondary: {
+      default: '#2dbdb6',
+      sub1: '#89d0c8',
+      sub2: '#009c96',
+    },
+    neutral: {
+      white: '#ffffff',
+      black: '#000000',
+      dgray: '#4c4c4e',
+      lgray: '#d1d2d4',
     },
   },
-  backgroundColors: {
-    default: {
-      primary: '#ffffff',
+  background: {
+    light: {
+      color: '#ffffff',
     },
     dark: {
-      primary: '#121212',
+      color: '#121212',
     },
   },
-  fontColors: {
-    default: {
-      title: '#000000d9',
-      primary: '#000000d9',
-      secondary: '#00000073',
-      disable: '#00000040',
+  font: {
+    sizes: {
+      '3xs': '0.425rem',
+      '2xs': '0.625rem',
+      xs: '0.75rem',
+      sm: '0.875rem',
+      md: '1rem',
+      lg: '1.125rem',
+      xl: '1.25rem',
+      '2xl': '1.375rem',
+      '3xl': '1.5rem',
+      '4xl': '1.75rem',
+      '5xl': '2.25rem',
+      '6xl': '3rem',
+      '7xl': '3.5rem',
+      '8xl': '6rem',
+      '9xl': '8rem',
     },
-    dark: {
-      title: '#ffffff',
-      primary: '#f2f2f2',
-      secondary: '#dddddd',
-      disable: '#cccccc',
+    colors: {
+      light: {
+        title: '#000000d9',
+        primary: '#000000d9',
+        secondary: '#00000073',
+        disable: '#00000040',
+      },
+      dark: {
+        title: '#ffffff',
+        primary: '#f2f2f2',
+        secondary: '#dddddd',
+        disable: '#cccccc',
+      },
     },
   },
 };
+
+export default defaultTheme;

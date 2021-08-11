@@ -1,40 +1,62 @@
 import * as React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { PopperProps } from '@/popper';
-import {
-  Popover,
-  PopoverTrigger,
-  PopoverContents,
-  PopoverHeader,
-  PopoverBody,
-} from '@/popover';
-import Button from '@/button/src/Button';
+import styled from 'styled-components';
+import AlertDialog, {
+  AlertDialogHeader,
+  AlertDialogBody,
+  AlertDialogFooter,
+} from '../src/AlertDialog';
+import { useModal } from '@/shared/ModalManager';
 
-const PopoverWrapper = (props: PopperProps) => {
+const Button = styled.button`
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  color: white;
+  width: 102px;
+  height: 34px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #ff464b;
+  font-size: 14px;
+  padding: 11px 20px;
+  margin: 0px;
+`;
+
+interface AlertType {
+  confirm: boolean;
+  warning: boolean;
+  info: boolean;
+  error: boolean;
+}
+
+const PopoverWrapper = props => {
+  const [isOpen, toggleModal] = useModal();
+
+  const handleClick = () => {
+    toggleModal.open();
+  };
+
   return (
-    <Popover {...props}>
-      <PopoverTrigger>
-        <Button color="primary" size="md">
-          POPOVER
-        </Button>
-      </PopoverTrigger>
-      <PopoverContents>
-        <PopoverHeader>Popover Title</PopoverHeader>
-        <PopoverBody>
-          A popover is a light roll made from an egg batter similar to that of
-          Yorkshire pudding, typically baked in muffin tins or dedicated popover
-          pans, which have straight-walled sides rather than angled. Popovers
-          may be served either as a sweet, topped with fruit and whipped cream;
-          or, butter and jam for breakfast; or, with afternoon tea; or, with
-          meats at lunch and dinner.
-        </PopoverBody>
-      </PopoverContents>
-    </Popover>
+    <>
+      <Button type="button" onClick={handleClick}>
+        CONFIRM
+      </Button>
+      <AlertDialog isOpen={isOpen}>
+        <AlertDialogHeader>Confirm Dialog</AlertDialogHeader>
+        <AlertDialogBody>Do you really want to leave?</AlertDialogBody>
+        <AlertDialogFooter>
+          <Button type="button">Cancel</Button>
+          <Button type="button">OK</Button>
+        </AlertDialogFooter>
+      </AlertDialog>
+    </>
   );
 };
 
 export default {
-  title: 'OVERLAY/Popover',
+  title: 'OVERLAY/Dialog',
   component: PopoverWrapper,
   parameters: {
     layout: 'centered',

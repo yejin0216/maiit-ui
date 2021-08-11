@@ -23,6 +23,7 @@ const ButtonInstance = styled.button<buttonProps>`
   border: ${props =>
     `1px solid ${props.colorMode === 'light' ? '#1A202C' : '#eee'}`};
   color: ${props => (props.colorMode === 'light' ? '#1A202C' : '#eee')};
+  cursor: pointer;
 `;
 
 const Button = () => {
