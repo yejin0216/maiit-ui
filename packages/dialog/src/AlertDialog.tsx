@@ -3,15 +3,15 @@ import Portal from '@/shared/PortalManager';
 import Backdrop from '@/shared/ModalManager';
 
 export const AlertDialogFooter: React.FC = ({ children }): JSX.Element => {
-  return <div>{children}</div>;
+  return <footer>{children}</footer>;
 };
 
 export const AlertDialogBody: React.FC = ({ children }): JSX.Element => {
-  return <div>{children}</div>;
+  return <div className="modal-view--body">{children}</div>;
 };
 
 export const AlertDialogHeader: React.FC = ({ children }): JSX.Element => {
-  return <div>{children}</div>;
+  return <header>{children}</header>;
 };
 
 interface AlertDialogProps {

@@ -1,28 +1,12 @@
 import * as React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import styled from 'styled-components';
+import { useModal } from '@/shared/ModalManager';
+import Button from '@/button/src/Button';
 import AlertDialog, {
   AlertDialogHeader,
   AlertDialogBody,
   AlertDialogFooter,
 } from '../src/AlertDialog';
-import { useModal } from '@/shared/ModalManager';
-
-const Button = styled.button`
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  cursor: pointer;
-  display: inline-block;
-  line-height: 1;
-  color: white;
-  width: 102px;
-  height: 34px;
-  border: 0;
-  border-radius: 5px;
-  background-color: #ff464b;
-  font-size: 14px;
-  padding: 11px 20px;
-  margin: 0px;
-`;
 
 interface AlertType {
   confirm: boolean;
@@ -40,15 +24,19 @@ const PopoverWrapper = props => {
 
   return (
     <>
-      <Button type="button" onClick={handleClick}>
+      <Button color="primary" size="md" onClick={handleClick}>
         CONFIRM
       </Button>
       <AlertDialog isOpen={isOpen}>
         <AlertDialogHeader>Confirm Dialog</AlertDialogHeader>
         <AlertDialogBody>Do you really want to leave?</AlertDialogBody>
         <AlertDialogFooter>
-          <Button type="button">Cancel</Button>
-          <Button type="button">OK</Button>
+          <Button color="primary" size="md">
+            Cancel
+          </Button>
+          <Button color="primary" size="md">
+            OK
+          </Button>
         </AlertDialogFooter>
       </AlertDialog>
     </>

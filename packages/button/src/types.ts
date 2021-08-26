@@ -1,6 +1,6 @@
 import React from 'react';
 
-export interface ButtonProps {
+export interface ButtonProps extends React.HTMLAttributes<HTMLElement> {
   color: 'primary' | 'secondary';
   size: string;
   variant?: 'solid' | 'outlined';
