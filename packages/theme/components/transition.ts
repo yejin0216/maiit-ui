@@ -6,6 +6,13 @@ export const TransitionTimeouts = {
 };
 
 export const TransitionPropTypeKeys = [
+  'in',
+  'mountOnEnter',
+  'unmountOnExit',
+  'appear',
+  'enter',
+  'exit',
+  'timeout',
   'onEnter',
   'onEntering',
   'onEntered',

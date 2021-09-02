@@ -3,14 +3,14 @@ import { Transition } from 'react-transition-group';
 import { TransitionTimeouts } from '@/theme/components/transition';
 import { mergeClasses } from '@/shared/utils';
 
-type FadeProps = {
+interface FadeProps {
   in: boolean;
   className: string;
   cssModule?: Record<string, string>;
   style?: Record<string, string>;
   handlePortalVisibility?: () => void;
   children?: React.ReactChild;
-};
+}
 
 const Fade = (props: FadeProps): JSX.Element => {
   const {

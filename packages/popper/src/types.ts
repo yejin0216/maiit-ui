@@ -23,7 +23,7 @@ export interface PopperProps extends PopperOrigin {
   trigger?: 'click' | 'hover';
   label?: string;
   style?: Dict;
-  children: React.ReactNode;
+  children: React.ReactChild;
 }
 
 export interface PopperWrapperProps extends PopperProps {
@@ -33,5 +33,5 @@ export interface PopperWrapperProps extends PopperProps {
 export interface PopperTriggerProps {
   trigger?: string;
   handleActive?: () => void;
-  children: React.ReactNode;
+  children: React.ReactChild;
 }

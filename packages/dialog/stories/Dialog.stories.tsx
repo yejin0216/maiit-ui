@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { useModal } from '@/shared/ModalManager';
+import useModal from '@/shared/ModalManager';
 import Button from '@/button/src/Button';
 import AlertDialog, {
   AlertDialogHeader,
@@ -8,26 +8,15 @@ import AlertDialog, {
   AlertDialogFooter,
 } from '../src/AlertDialog';
 
-interface AlertType {
-  confirm: boolean;
-  warning: boolean;
-  info: boolean;
-  error: boolean;
-}
-
-const PopoverWrapper = props => {
-  const [isOpen, toggleModal] = useModal();
-
-  const handleClick = () => {
-    toggleModal.open();
-  };
-
+const DialogWrapper = props => {
+  const [isOpen, onOpen, onClose] = useModal();
+  const handleDialog = () => onOpen();
   return (
     <>
-      <Button color="primary" size="md" onClick={handleClick}>
+      <Button color="primary" size="md" onClick={handleDialog}>
         CONFIRM
       </Button>
-      <AlertDialog isOpen={isOpen}>
+      <AlertDialog isOpen={isOpen} onClose={onClose}>
         <AlertDialogHeader>Confirm Dialog</AlertDialogHeader>
         <AlertDialogBody>Do you really want to leave?</AlertDialogBody>
         <AlertDialogFooter>
@@ -45,7 +34,7 @@ const PopoverWrapper = props => {
 
 export default {
   title: 'OVERLAY/Dialog',
-  component: PopoverWrapper,
+  component: DialogWrapper,
   parameters: {
     layout: 'centered',
     docs: {
@@ -87,10 +76,10 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof PopoverWrapper>;
+} as ComponentMeta<typeof DialogWrapper>;
 
-const Template: ComponentStory<typeof PopoverWrapper> = args => (
-  <PopoverWrapper {...args} />
+const Template: ComponentStory<typeof DialogWrapper> = args => (
+  <DialogWrapper {...args} />
 );
 
 export const basic = Template.bind({});
