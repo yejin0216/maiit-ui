@@ -42,7 +42,8 @@ const Button = () => {
 export const decorators = [
   (Story: Function) => {
     return (
-      <div id="story-wrapper" style={{ minHeight: '50vh' }}>
+      // <div id="story-wrapper" style={{ minHeight: '50vh' }}>
+      <div id="story-wrapper">
         <MAIITThemeProvider>
           <Button />
           <Story />
