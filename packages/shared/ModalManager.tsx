@@ -1,16 +1,13 @@
 import * as React from 'react';
 
-const Backdrop: React.FC = ({ children }): JSX.Element => {
-  return <div className="modal view visible">{children}</div>;
-};
-
-export const useModal = (): any => {
+const useModal = (): [boolean, () => void, () => void, () => void] => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const toggleModal = {
-    open: React.useCallback(() => setIsOpen(true), []),
-    close: React.useCallback(() => setIsOpen(false), []),
-  };
-  return [isOpen, toggleModal];
+
+  const onToggle = React.useCallback(() => setIsOpen(() => !isOpen), [isOpen]);
+  const onOpen = React.useCallback(() => setIsOpen(true), []);
+  const onClose = React.useCallback(() => setIsOpen(false), []);
+
+  return [isOpen, onToggle, onOpen, onClose];
 };
 
-export default Backdrop;
+export default useModal;
