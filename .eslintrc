@@ -45,13 +45,13 @@
       }
     },
     {
-      "files": ["./packages/**/stories/*.stories.@(js|jsx|ts|tsx)"],
+      "files": ["./src/**/stories/*.stories.@(js|jsx|ts|tsx)"],
       "rules": {
         "react/jsx-props-no-spreading": ["off"]
       }
     },
     {
-      "files": ["./packages/shared/constants.ts"],
+      "files": ["./src/shared/constants.ts"],
       "rules": {
         "no-underscore-dangle": ["off"],
         "@typescript-eslint/naming-convention": ["off"]
