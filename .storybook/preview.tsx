@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import {
   MAIITThemeProvider,
   useColorMode,
-} from '../packages/color-mode/src/MAIITThemeProvider';
+} from '../src/color-mode/src/MAIITThemeProvider';
 import { HiSun, HiMoon } from 'react-icons/hi';
-import { fontSizes } from '../packages/theme/styles/fonts';
+import { fontSizes } from '../src/theme/styles/fonts';
 
 interface buttonProps {
   colorMode: string;
