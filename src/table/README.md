@@ -31,9 +31,9 @@
 
 - initialState
 
-  | Description | Type                    |
-  | :---------- | :---------------------- |
-  |             | Record<string, unknown> |
+  | Description                                                                                          | Type |
+  | :--------------------------------------------------------------------------------------------------- | :--- |
+  | If a row's ID is found in this array, it will have the state of the value corresponding to that key. | {}   |
 
 - className
 
