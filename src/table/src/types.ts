@@ -1,5 +1,6 @@
+import { Dict } from '@/shared/types';
 import { MouseEvent } from 'react';
-import { Column, Row } from 'react-table';
+import { Column, HeaderGroup, Row } from 'react-table';
 
 export interface ITableProperty<T> {
   columns: Column[];
@@ -7,27 +8,30 @@ export interface ITableProperty<T> {
   initialState?: Record<string, unknown>;
 }
 
-export type TTableEvent = {
-  onRowClick?: (
-    e: MouseEvent<HTMLTableRowElement>,
-    row: Record<string, unknown>,
-  ) => void;
-  onCellClick?: (
-    e: MouseEvent<HTMLTableRowElement>,
-    row: Record<string, unknown>,
-  ) => void;
-};
+export type TOnRowClick = (
+  e: MouseEvent<HTMLTableRowElement>,
+  row: Dict<unknown>,
+) => void;
+
+export type TOnCellClick = (
+  e: MouseEvent<HTMLTableRowElement>,
+  row: Dict<unknown>,
+) => void;
 
 export interface ITableProps<T> extends ITableProperty<T> {
-  className?: Array<string>;
+  classNames?: string[];
   rowSelection?: boolean;
   scroll?: boolean;
-  onRowClick?: Pick<TTableEvent, 'onRowClick'>;
-  onCellClick?: Pick<TTableEvent, 'onCellClick'>;
+  onRowClick?: TOnRowClick;
+  onCellClick?: TOnCellClick;
+}
+
+export interface ITheadProps {
+  headerGroups: HeaderGroup[];
 }
 
 export interface ITableTrProps {
   row: Row;
-  onRowClick?: Pick<TTableEvent, 'onRowClick'>;
-  onCellClick?: Pick<TTableEvent, 'onCellClick'>;
+  onRowClick?: TOnRowClick;
+  onCellClick?: TOnCellClick;
 }
