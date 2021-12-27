@@ -21,23 +21,18 @@ const ButtonContainer = styled.button.attrs(props => ({
 }))<ButtonStyleProps>`
   ${baseButtonStyle}
   height: ${props => styleConfig.height[props.size]};
-  background-color: ${props =>
-    props.variant === 'solid' ? props.mainColor : 'transparent'};
+  background-color: ${props => (props.variant === 'solid' ? props.mainColor : 'transparent')};
   color: ${props => (props.variant === 'solid' ? 'white' : props.mainColor)};
-  border-color: ${props =>
-    props.variant === 'solid' ? 'transparent' : props.mainColor};
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  border-color: ${props => (props.variant === 'solid' ? 'transparent' : props.mainColor)};
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
 
   &:not(:disabled):not(.disabled):hover,
   &:not(:disabled):not(.disabled):active {
     border-color: #0062cc;
     box-shadow: 0 0 0 0.2rem rgba(0, 98, 204, 0.5) !important;
     cursor: pointer;
-    background-color: ${props =>
-      props.variant === 'solid'
-        ? `${props.subColor}`
-        : `${props.focusColor}80`};
+    background-color: ${props => (props.variant === 'solid' ? `${props.subColor}` : `${props.focusColor}80`)};
   }
 
   &.disabled,

@@ -16,11 +16,9 @@ export const popoverContentStyle: CSS.Properties = {
 export const PopperContainer = styled.div.attrs(props => {
   props.className as string;
 })`
-  visibility: ${(props: Partial<TooltipContentsProps>) =>
-    props.isOpen ? 'visible' : 'hidden'};
+  visibility: ${(props: Partial<TooltipContentsProps>) => (props.isOpen ? 'visible' : 'hidden')};
   opacity: ${(props: Partial<TooltipContentsProps>) => (props.isOpen ? 1 : 0)};
-  transition: ${(props: Partial<TooltipContentsProps>) =>
-    props.isOpen ? 'visibility 0.3s linear, opacity 0.3s' : 0};
+  transition: ${(props: Partial<TooltipContentsProps>) => (props.isOpen ? 'visibility 0.3s linear, opacity 0.3s' : 0)};
 
   .tooltip__label {
     font-size: ${fontSizes.sm};

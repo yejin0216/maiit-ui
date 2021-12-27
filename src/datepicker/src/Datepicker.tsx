@@ -17,9 +17,7 @@ const Datepicker = (props: DatepickerProps): JSX.Element => {
     onChange,
   } = props;
 
-  const [defaultDate, setDefaultDate] = React.useState<number | Date>(
-    defaultValue,
-  );
+  const [defaultDate, setDefaultDate] = React.useState<number | Date>(defaultValue);
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -76,10 +74,7 @@ const Datepicker = (props: DatepickerProps): JSX.Element => {
     setIsOpen(() => false);
   };
 
-  const handleChange = (
-    e: React.ChangeEvent,
-    fn: (arg0: React.ChangeEvent) => void,
-  ): void => {
+  const handleChange = (e: React.ChangeEvent, fn: (arg0: React.ChangeEvent) => void): void => {
     const regExp = utils.getRegExpOfDateFormat(dateFormat);
     const $targetValue = (e.target as HTMLInputElement).value;
     if (regExp.test($targetValue)) {
@@ -108,12 +103,7 @@ const Datepicker = (props: DatepickerProps): JSX.Element => {
       />
       <div ref={calendarRef} className="maiit-datepicker__contents">
         <DatepickerHeader defaultDate={defaultDate} prev={prev} next={next} />
-        <DatepickerBody
-          defaultDate={defaultDate}
-          minDate={minDate}
-          maxDate={maxDate}
-          getDateFrom={getDateFrom}
-        />
+        <DatepickerBody defaultDate={defaultDate} minDate={minDate} maxDate={maxDate} getDateFrom={getDateFrom} />
       </div>
     </DatepickerContainer>
   );

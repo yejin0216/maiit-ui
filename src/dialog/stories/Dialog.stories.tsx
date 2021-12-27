@@ -2,11 +2,7 @@ import * as React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import useModal from '@/shared/ModalManager';
 import Button from '@/button/src/Button';
-import AlertDialog, {
-  AlertDialogHeader,
-  AlertDialogBody,
-  AlertDialogFooter,
-} from '../src/AlertDialog';
+import AlertDialog, { AlertDialogHeader, AlertDialogBody, AlertDialogFooter } from '../src/AlertDialog';
 
 const DialogWrapper = props => {
   const [isOpen, onOpen, onClose] = useModal();
@@ -39,8 +35,7 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component:
-          'If the example does not work properly, please view in [new window].',
+        component: 'If the example does not work properly, please view in [new window].',
       },
     },
   },
@@ -78,9 +73,7 @@ export default {
   },
 } as ComponentMeta<typeof DialogWrapper>;
 
-const Template: ComponentStory<typeof DialogWrapper> = args => (
-  <DialogWrapper {...args} />
-);
+const Template: ComponentStory<typeof DialogWrapper> = args => <DialogWrapper {...args} />;
 
 export const basic = Template.bind({});
 basic.storyName = '기본';

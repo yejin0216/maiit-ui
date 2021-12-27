@@ -15,8 +15,7 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component:
-          'If the example does not work properly, please view in [new window].',
+        component: 'If the example does not work properly, please view in [new window].',
       },
     },
   },
@@ -54,9 +53,7 @@ export default {
   },
 } as ComponentMeta<typeof DatepickerWrapper>;
 
-const Template: ComponentStory<typeof DatepickerWrapper> = args => (
-  <DatepickerWrapper {...args} />
-);
+const Template: ComponentStory<typeof DatepickerWrapper> = args => <DatepickerWrapper {...args} />;
 
 export const basic = Template.bind({});
 basic.storyName = '기본';

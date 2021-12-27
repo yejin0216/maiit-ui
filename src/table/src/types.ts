@@ -8,15 +8,9 @@ export interface ITableProperty<T> {
   initialState?: Record<string, unknown>;
 }
 
-export type TOnRowClick = (
-  e: MouseEvent<HTMLTableRowElement>,
-  row: Dict<unknown>,
-) => void;
+export type TOnRowClick = (e: MouseEvent<HTMLTableRowElement>, row: Dict<unknown>) => void;
 
-export type TOnCellClick = (
-  e: MouseEvent<HTMLTableRowElement>,
-  row: Dict<unknown>,
-) => void;
+export type TOnCellClick = (e: MouseEvent<HTMLTableRowElement>, row: Dict<unknown>) => void;
 
 export interface ITableProps<T> extends ITableProperty<T> {
   classNames?: string[];

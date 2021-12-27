@@ -18,19 +18,11 @@ interface AlertDialogHeaderProps {
   children: React.ReactChild;
 }
 
-export const AlertDialogHeader = ({
-  onClose,
-  children,
-}: AlertDialogHeaderProps): JSX.Element => {
+export const AlertDialogHeader = ({ onClose, children }: AlertDialogHeaderProps): JSX.Element => {
   return (
     <header className="modal-header">
       <h5 className="modal-title">{children}</h5>
-      <button
-        type="button"
-        className="close"
-        aria-label="Close"
-        onClick={onClose}
-      >
+      <button type="button" className="close" aria-label="Close" onClick={onClose}>
         <span aria-hidden="true">×</span>
       </button>
     </header>
@@ -43,11 +35,7 @@ interface AlertDialogProps {
   children: React.ReactChild;
 }
 
-const AlertDialog = ({
-  isOpen,
-  onClose,
-  children,
-}: AlertDialogProps): JSX.Element => {
+const AlertDialog = ({ isOpen, onClose, children }: AlertDialogProps): JSX.Element => {
   const childrenNode = React.Children.map(children, child => {
     const ele = child as React.ReactElement;
     if (ele.type === AlertDialogHeader) {

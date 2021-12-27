@@ -9,7 +9,5 @@ export const classNames: { [index: string]: string } = {
 
 export const syncBodyClassName = (mode: ColorMode): void => {
   document.body.classList.add(classNames[mode]);
-  document.body.classList.remove(
-    classNames[mode === 'light' ? 'dark' : 'light'],
-  );
+  document.body.classList.remove(classNames[mode === 'light' ? 'dark' : 'light']);
 };

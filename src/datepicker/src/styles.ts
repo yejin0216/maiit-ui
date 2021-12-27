@@ -58,8 +58,7 @@ const DatepickerContainer = styled.div.attrs(props => {
     transform: translate(0px, 5px);
     visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
     opacity: ${props => (props.isOpen ? 1 : 0)};
-    transition: ${props =>
-      props.fade ? 'visibility 0.3s linear, opacity 0.3s' : 0};
+    transition: ${props => (props.fade ? 'visibility 0.3s linear, opacity 0.3s' : 0)};
   }
 
   .${MAIIT_DATEPICKER}__header {
@@ -124,14 +123,12 @@ const DatepickerContainer = styled.div.attrs(props => {
       ${baseDateBlockStyles};
       border: 1px solid #757575;
       cursor: pointer;
-      background-color: ${props =>
-        (props.theme as Dict).colors.secondary.sub1}80;
+      background-color: ${props => (props.theme as Dict).colors.secondary.sub1}80;
     }
 
     .body--dates-valid {
       &:hover {
-        background-color: ${props =>
-          (props.theme as Dict).colors.secondary.sub1}80;
+        background-color: ${props => (props.theme as Dict).colors.secondary.sub1}80;
       }
     }
   }

@@ -30,9 +30,7 @@ export const useColorMode = (): ColorModeContextType => {
   return context;
 };
 
-export const ColorModeProvider = (
-  props: ColorModeProviderProps,
-): JSX.Element => {
+export const ColorModeProvider = (props: ColorModeProviderProps): JSX.Element => {
   const { children } = props;
 
   const [colorMode, updateColorMode] = React.useState<ColorMode>(
@@ -64,16 +62,10 @@ export const ColorModeProvider = (
     [colorMode, setColorMode, toggleColorMode],
   );
 
-  return (
-    <ColorModeContext.Provider value={context}>
-      {children}
-    </ColorModeContext.Provider>
-  );
+  return <ColorModeContext.Provider value={context}>{children}</ColorModeContext.Provider>;
 };
 
-export const MAIITThemeProvider = (
-  props: MAIITThemeProviderProps,
-): JSX.Element => {
+export const MAIITThemeProvider = (props: MAIITThemeProviderProps): JSX.Element => {
   const { theme = defaultTheme, children } = props;
 
   return (

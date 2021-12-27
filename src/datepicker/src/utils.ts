@@ -35,11 +35,7 @@ export const getStartOfToday = (): Date => {
  * @param {Object} options
  * @return {String} the formatted date string
  */
-export const dateFormatter = (
-  date: Date | number = new Date(),
-  pattern: string,
-  options?: Dict,
-): string => {
+export const dateFormatter = (date: Date | number = new Date(), pattern: string, options?: Dict): string => {
   return format(date, pattern, options);
 };
 
@@ -58,9 +54,7 @@ export const parseStringInISO = (strDate: string, options?: Dict): Date => {
  * @param {Date | Number} date
  * @returns {Number} the timestamp
  */
-export const getUnixTimeOfTheGivenDate = (
-  date: Date | number = new Date(),
-): number => {
+export const getUnixTimeOfTheGivenDate = (date: Date | number = new Date()): number => {
   return getUnixTime(date) * 1000;
 };
 
@@ -71,11 +65,7 @@ export const getUnixTimeOfTheGivenDate = (
  * @param {Number} amount
  * @return {Date}
  */
-export const subPeriod = (
-  type: string,
-  date: Date | number = new Date(),
-  amount: number,
-): Date => {
+export const subPeriod = (type: string, date: Date | number = new Date(), amount: number): Date => {
   switch (type) {
     case 'day':
       return subDays(date, amount);
@@ -93,11 +83,7 @@ export const subPeriod = (
  * @param {Number} amount
  * @return {Date}
  */
-export const addPeriod = (
-  type: string,
-  date: Date | number = new Date(),
-  amount: number,
-): Date => {
+export const addPeriod = (type: string, date: Date | number = new Date(), amount: number): Date => {
   switch (type) {
     case 'day':
       return addDays(date, amount);
@@ -123,10 +109,7 @@ export const getTheDayOfMonth = (date: Date | number = new Date()): number => {
  * @param {Object} options
  * @return {Number} the number of calendar weeks
  */
-export const getWeekInTheMonth = (
-  date: Date | number = new Date(),
-  options?: Dict,
-): number => {
+export const getWeekInTheMonth = (date: Date | number = new Date(), options?: Dict): number => {
   return getWeeksInMonth(date, options);
 };
 
@@ -136,9 +119,7 @@ export const getWeekInTheMonth = (
  * @param {Date | Number} date
  * @return {Date} the end of a month
  */
-export const getEndDateOfTheMonth = (
-  date: Date | number = new Date(),
-): Date => {
+export const getEndDateOfTheMonth = (date: Date | number = new Date()): Date => {
   return lastDayOfMonth(date);
 };
 
@@ -157,10 +138,7 @@ export const getDaysInTheMonth = (date: Date | number = new Date()): number => {
  * @param dateRight
  * @return {Boolean} the dates are in the same month
  */
-export const isSameMonthInYear = (
-  dateLeft = new Date(),
-  dateRight = new Date(),
-): boolean => {
+export const isSameMonthInYear = (dateLeft = new Date(), dateRight = new Date()): boolean => {
   return isSameMonth(dateLeft, dateRight);
 };
 
@@ -169,9 +147,7 @@ export const isSameMonthInYear = (
  * @param {Date | Number} date
  * @return {Number} the year
  */
-export const getYearOfTheGivenDate = (
-  date: Date | number = new Date(),
-): number => {
+export const getYearOfTheGivenDate = (date: Date | number = new Date()): number => {
   return getYear(date);
 };
 
@@ -180,9 +156,7 @@ export const getYearOfTheGivenDate = (
  * @param {Date | Number} date
  * @return {Number} the month
  */
-export const getMonthOfTheGivenDate = (
-  date: Date | number = new Date(),
-): number => {
+export const getMonthOfTheGivenDate = (date: Date | number = new Date()): number => {
   return getMonth(date);
 };
 
@@ -200,9 +174,7 @@ export const getDayOfTheWeek = (date: Date | number = new Date()): number => {
  * @param {Date} date
  * @return {0 | 1 | 2 | 3 | 4 | 5 | 6} the day of week, 0 represents Sunday
  */
-export const getFirstDayOfTheMonth = (
-  date: Date | number = new Date(),
-): number => {
+export const getFirstDayOfTheMonth = (date: Date | number = new Date()): number => {
   return getDay(new Date(getYear(date), getMonth(date), 1));
 };
 
@@ -211,9 +183,7 @@ export const getFirstDayOfTheMonth = (
  * @param {Date} date
  * @return {0 | 1 | 2 | 3 | 4 | 5 | 6} the day of week, 0 represents Sunday
  */
-export const getLastDayOfTheMonth = (
-  date: Date | number = new Date(),
-): number => {
+export const getLastDayOfTheMonth = (date: Date | number = new Date()): number => {
   return getDay(new Date(getYear(date), getMonth(date), 0));
 };
 
@@ -240,20 +210,16 @@ export const getRegExpOfDateFormat = (formatType: string): RegExp => {
   let regExp = '';
   switch (formatType) {
     case 'yyyy-MM-dd':
-      regExp =
-        '^(19|20)\\d\\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$';
+      regExp = '^(19|20)\\d\\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$';
       break;
     case 'dd-MM-yyyy':
-      regExp =
-        '^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\\d\\d$';
+      regExp = '^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\\d\\d$';
       break;
     case 'MM-dd-yyyy':
-      regExp =
-        '^(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\\d\\d$';
+      regExp = '^(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\\d\\d$';
       break;
     default:
-      regExp =
-        '^(19|20)\\d\\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$';
+      regExp = '^(19|20)\\d\\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$';
   }
   return new RegExp(regExp);
 };

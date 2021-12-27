@@ -20,13 +20,7 @@
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended"
   ],
-  "plugins": [
-    "import",
-    "jsx-a11y",
-    "prettier",
-    "react",
-    "@typescript-eslint/eslint-plugin"
-  ],
+  "plugins": ["import", "jsx-a11y", "prettier", "react", "@typescript-eslint/eslint-plugin"],
   "rules": {
     "import/namespace": "off",
     "import/no-extraneous-dependencies": "off",

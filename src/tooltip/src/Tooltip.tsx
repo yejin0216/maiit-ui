@@ -1,19 +1,10 @@
 import * as React from 'react';
 import { Popper } from 'react-popper';
-import {
-  PopperWrapper,
-  PopperTriggerWrapper,
-  PopperProps,
-  PopperTriggerProps,
-} from '@/popper';
+import { PopperWrapper, PopperTriggerWrapper, PopperProps, PopperTriggerProps } from '@/popper';
 import { popoverContentStyle, PopperContainer } from './styled';
 import { TooltipContentsProps, TooltipLabelProps } from './types';
 
-export const TooltipLabel = ({
-  update,
-  label,
-  children,
-}: TooltipLabelProps): JSX.Element => {
+export const TooltipLabel = ({ update, label, children }: TooltipLabelProps): JSX.Element => {
   React.useEffect(() => {
     update();
   }, [label, update]);
@@ -21,17 +12,10 @@ export const TooltipLabel = ({
   return <>{children}</>;
 };
 
-export const TooltipContents = ({
-  placement: activePlacement,
-  isOpen,
-  label,
-}: TooltipContentsProps): JSX.Element => {
+export const TooltipContents = ({ placement: activePlacement, isOpen, label }: TooltipContentsProps): JSX.Element => {
   return (
     <PopperContainer className="maiit-tooltip__container" isOpen={isOpen}>
-      <Popper
-        placement={activePlacement}
-        modifiers={[{ name: 'offset', options: { offset: [0, 8] } }]}
-      >
+      <Popper placement={activePlacement} modifiers={[{ name: 'offset', options: { offset: [0, 8] } }]}>
         {({ ref, style, placement, update }) => {
           return (
             <TooltipLabel update={update} label={label}>

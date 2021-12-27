@@ -20,10 +20,8 @@ const ModalWrapper: React.FC = ({ children }) => {
       <Modal isOpen={isOpen} toggle={toggle}>
         <ModalHeader toggle={toggle}>What Is Modal?</ModalHeader>
         <ModalBody>
-          Modal is a semi-synthetic fibre that has found fame in the age of
-          activewear. Breathable and absorbent, this cotton alternative is used
-          in the manufacture of underwear, pyjamas, bathrobes, bed sheets, and
-          more.
+          Modal is a semi-synthetic fibre that has found fame in the age of activewear. Breathable and absorbent, this
+          cotton alternative is used in the manufacture of underwear, pyjamas, bathrobes, bed sheets, and more.
         </ModalBody>
         <ModalFooter>
           <Button color="primary" size="md" onClick={toggle}>
@@ -45,8 +43,7 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component:
-          'If the example does not work properly, please view in [new window].',
+        component: 'If the example does not work properly, please view in [new window].',
       },
     },
   },
