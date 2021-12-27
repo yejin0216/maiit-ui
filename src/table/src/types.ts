@@ -35,3 +35,10 @@ export interface ITableTrProps {
   onRowClick?: TOnRowClick;
   onCellClick?: TOnCellClick;
 }
+
+export interface ICheckboxProps {
+  indeterminate?: boolean;
+  id: string;
+  disabled?: boolean;
+  onClick?: () => void;
+}
