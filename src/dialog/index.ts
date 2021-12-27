@@ -1,6 +1,1 @@
-export {
-  default as AlertDialog,
-  AlertDialogHeader,
-  AlertDialogBody,
-  AlertDialogFooter,
-} from './src/AlertDialog';
+export { default as AlertDialog, AlertDialogHeader, AlertDialogBody, AlertDialogFooter } from './src/AlertDialog';

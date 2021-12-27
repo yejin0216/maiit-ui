@@ -4,10 +4,7 @@ import ButtonContainer from './styles';
 import { ButtonProps } from './types';
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    { color, size, variant = 'solid', disabled, children, ...rest },
-    ref: React.ForwardedRef<any>,
-  ) => {
+  ({ color, size, variant = 'solid', disabled, children, ...rest }, ref: React.ForwardedRef<any>) => {
     return (
       <ButtonContainer
         ref={ref}

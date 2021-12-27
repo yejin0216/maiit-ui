@@ -2,11 +2,7 @@ import * as React from 'react';
 import { Manager, Reference } from 'react-popper';
 import { PopperWrapperProps, PopperTriggerProps } from './types';
 
-export const PopperTriggerWrapper = ({
-  trigger,
-  handleActive,
-  children,
-}: PopperTriggerProps): JSX.Element => {
+export const PopperTriggerWrapper = ({ trigger, handleActive, children }: PopperTriggerProps): JSX.Element => {
   const child: any = React.Children.only(children);
   return (
     <Reference>

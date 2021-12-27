@@ -22,17 +22,11 @@ if (__DEV__) {
   DatepickerWeekdays.displayName = 'DatepickerWeekdays';
 }
 
-const DatepickerHeader = ({
-  defaultDate,
-  prev,
-  next,
-}: DatepickerHeaderProps): JSX.Element => (
+const DatepickerHeader = ({ defaultDate, prev, next }: DatepickerHeaderProps): JSX.Element => (
   <>
     <div className="maiit-datepicker__header">
       <DatepickerHeaderNavigation handleClick={[prev, next]}>
-        <div className="header__label">
-          {utils.dateFormatter(defaultDate, 'MMM yyyy')}
-        </div>
+        <div className="header__label">{utils.dateFormatter(defaultDate, 'MMM yyyy')}</div>
       </DatepickerHeaderNavigation>
     </div>
     <DatepickerWeekdays />

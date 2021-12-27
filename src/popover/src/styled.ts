@@ -31,11 +31,9 @@ export const BodyContents = styled.div.attrs(props => {
 `;
 
 export const PopperContainer = styled.div`
-  visibility: ${(props: Partial<PopoverContentsProps>) =>
-    props.isOpen ? 'visible' : 'hidden'};
+  visibility: ${(props: Partial<PopoverContentsProps>) => (props.isOpen ? 'visible' : 'hidden')};
   opacity: ${(props: Partial<PopoverContentsProps>) => (props.isOpen ? 1 : 0)};
-  transition: ${(props: Partial<PopoverContentsProps>) =>
-    props.isOpen ? 'visibility 0.3s linear, opacity 0.3s' : 0};
+  transition: ${(props: Partial<PopoverContentsProps>) => (props.isOpen ? 'visibility 0.3s linear, opacity 0.3s' : 0)};
 `;
 
 const arrowStyle = `

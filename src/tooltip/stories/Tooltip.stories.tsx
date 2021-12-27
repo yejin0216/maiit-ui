@@ -21,8 +21,7 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component:
-          'If the example does not work properly, please view in [new window].',
+        component: 'If the example does not work properly, please view in [new window].',
       },
     },
   },
@@ -93,9 +92,7 @@ export default {
   },
 } as ComponentMeta<typeof TooltipStory>;
 
-const Template: ComponentStory<typeof TooltipStory> = args => (
-  <TooltipStory {...args} />
-);
+const Template: ComponentStory<typeof TooltipStory> = args => <TooltipStory {...args} />;
 
 export const basic = Template.bind({});
 basic.storyName = '기본';

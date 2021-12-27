@@ -1,30 +1,15 @@
 import * as React from 'react';
 import { Popper } from 'react-popper';
-import {
-  PopperWrapper,
-  PopperTriggerWrapper,
-  PopperProps,
-  PopperTriggerProps,
-} from '@/popper';
-import {
-  popoverContentStyle,
-  HeaderTitle,
-  BodyContents,
-  PopperContainer,
-  Arrow,
-} from './styled';
+import { PopperWrapper, PopperTriggerWrapper, PopperProps, PopperTriggerProps } from '@/popper';
+import { popoverContentStyle, HeaderTitle, BodyContents, PopperContainer, Arrow } from './styled';
 import { PopoverContentsProps } from './types';
 
 export const PopoverHeader: React.FC = ({ children }): JSX.Element => {
-  return (
-    <HeaderTitle className="maiit-popover__header">{children}</HeaderTitle>
-  );
+  return <HeaderTitle className="maiit-popover__header">{children}</HeaderTitle>;
 };
 
 export const PopoverBody: React.FC = ({ children }): JSX.Element => {
-  return (
-    <BodyContents className="maiit-popover__body">{children}</BodyContents>
-  );
+  return <BodyContents className="maiit-popover__body">{children}</BodyContents>;
 };
 
 export const PopoverContents = ({
@@ -34,10 +19,7 @@ export const PopoverContents = ({
 }: PopoverContentsProps): JSX.Element => {
   return (
     <PopperContainer isOpen={isOpen}>
-      <Popper
-        placement={activePlacement}
-        modifiers={[{ name: 'offset', options: { offset: [0, 8] } }]}
-      >
+      <Popper placement={activePlacement} modifiers={[{ name: 'offset', options: { offset: [0, 8] } }]}>
         {({ ref, style, placement, arrowProps }) => {
           return (
             <div

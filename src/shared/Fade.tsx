@@ -13,20 +13,9 @@ interface FadeProps {
 }
 
 const Fade = (props: FadeProps): JSX.Element => {
-  const {
-    in: inProps = true,
-    className,
-    cssModule,
-    style,
-    handlePortalVisibility,
-    children,
-    ...otherProps
-  } = props;
+  const { in: inProps = true, className, cssModule, style, handlePortalVisibility, children, ...otherProps } = props;
 
-  const [
-    transitionStyles,
-    setTransitionStyles,
-  ] = React.useState<React.CSSProperties>({ ...style });
+  const [transitionStyles, setTransitionStyles] = React.useState<React.CSSProperties>({ ...style });
 
   const onTransitionEntered = (): void => {
     setTransitionStyles({
