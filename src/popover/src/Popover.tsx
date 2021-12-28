@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Popper } from 'react-popper';
 import { PopperWrapper, PopperTriggerWrapper, PopperProps, PopperTriggerProps } from '@/popper';
-import { popoverContentStyle, HeaderTitle, BodyContents, PopperContainer, Arrow } from './styled';
+import { popoverContentStyle, HeaderTitle, BodyContents, PopperContainer, Arrow } from './styles';
 import { PopoverContentsProps } from './types';
 
 export const PopoverHeader: React.FC = ({ children }): JSX.Element => {
