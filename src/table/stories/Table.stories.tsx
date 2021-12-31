@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ITableProps } from '@/table/src/types';
-import Table from '@/table/src/Table';
+import { BasicTable } from '@/table/src/Table';
 import makeData, { IPersonData } from './makeData';
 
 const columns = [
@@ -23,13 +23,13 @@ const columns = [
   },
 ];
 
-const BasicTable = (props: ITableProps<IPersonData>): JSX.Element => {
-  return <Table {...props} />;
+const BasicTableWrapper = (props: ITableProps<IPersonData>): JSX.Element => {
+  return <BasicTable {...props} />;
 };
 
 export default {
   title: 'TABLE/Bisic Table',
-  component: BasicTable,
+  component: BasicTableWrapper,
   paramters: {
     layout: 'centered',
     docs: {
@@ -38,15 +38,14 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof BasicTable>;
+} as ComponentMeta<typeof BasicTableWrapper>;
 
-const Template: ComponentStory<typeof BasicTable> = args => <BasicTable {...args} />;
+const BasicTableTemplate: ComponentStory<typeof BasicTableWrapper> = args => <BasicTableWrapper {...args} />;
 
-export const basic = Template.bind({});
+export const basic = BasicTableTemplate.bind({});
 basic.storyName = '기본';
 basic.args = {
   columns,
   data: makeData(20),
-  rowSelection: false,
   scroll: false,
 };
