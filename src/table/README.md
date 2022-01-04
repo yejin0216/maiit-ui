@@ -41,12 +41,6 @@
   | :---------- | :------------ |
   |             | Array<String> |
 
-- rowSelection
-
-  | Type    | default |
-  | :------ | :------ |
-  | boolean | false   |
-
 - scroll
 
   | Type    | default |
